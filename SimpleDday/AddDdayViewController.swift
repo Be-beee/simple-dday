@@ -9,9 +9,12 @@ import UIKit
 
 class AddDdayViewController: UITableViewController {
     
+    let bgColor: [UIColor] = [.systemRed, .systemBlue, .systemPink, .systemTeal, .systemGreen, .systemOrange, .systemPurple, .systemIndigo, .systemYellow]
+    
     let df = DateFormatter()
     var newData: DateCountModel = DateCountModel(date: Date(), title: "None", isDday: true, shouldAlarm: false)
 
+    @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     
     @IBOutlet weak var ddayBtn: UIButton!
@@ -26,8 +29,11 @@ class AddDdayViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         setDateFormatter()
         setButtonUI()
+        setTapGestureAtImageView()
     }
     
     func setDateFormatter() {
@@ -40,6 +46,17 @@ class AddDdayViewController: UITableViewController {
         ddayBtn.setTitleColor(.systemIndigo, for: .normal)
         dateCountBtn.setTitleColor(.systemGray, for: .normal)
     }
+    func setTapGestureAtImageView() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapEmptyImage))
+        
+        mainImageView.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapEmptyImage() {
+        print("포토 라이브러리 접근")
+    }
+    
+    
     @IBAction func selectDate(_ sender: UIDatePicker) {
         selectedDateLabel.text = df.string(from: ddayDatePicker.date)
     }
@@ -68,6 +85,7 @@ class AddDdayViewController: UITableViewController {
         }
         newData.date = ddayDatePicker.date
         newData.shouldAlarm = pushNotiSwitch.isOn
+        newData.bgColor = bgColor.randomElement()
         
         self.performSegue(withIdentifier: "toMain", sender: self)
     }

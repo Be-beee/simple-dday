@@ -12,4 +12,6 @@ struct DateCountModel {
     var title: String
     var isDday: Bool // d-day or count date
     var shouldAlarm: Bool
+    var bgImage: UIImage?
+    var bgColor: UIColor?
 }

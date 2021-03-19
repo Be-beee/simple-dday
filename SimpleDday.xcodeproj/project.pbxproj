@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B523D9952603778C00C52185 /* DDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523D9942603778C00C52185 /* DDayCell.swift */; };
 		B523D9992603806700C52185 /* AddDdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523D9982603806700C52185 /* AddDdayViewController.swift */; };
 		B523D99C2603807E00C52185 /* AddDdayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */; };
+		B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E4F6626049EDD007491C0 /* DdayListCell.swift */; };
+		B54E4F6926049EDD007491C0 /* DdayListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54E4F6726049EDD007491C0 /* DdayListCell.xib */; };
 		B5FE0D8A260312E00028DD9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D89260312E00028DD9C /* AppDelegate.swift */; };
 		B5FE0D8C260312E00028DD9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */; };
 		B5FE0D8E260312E00028DD9C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D8D260312E00028DD9C /* MainViewController.swift */; };
@@ -20,9 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B523D9942603778C00C52185 /* DDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDayCell.swift; sourceTree = "<group>"; };
 		B523D9982603806700C52185 /* AddDdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDdayViewController.swift; sourceTree = "<group>"; };
 		B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDdayViewController.storyboard; sourceTree = "<group>"; };
+		B54E4F6626049EDD007491C0 /* DdayListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdayListCell.swift; sourceTree = "<group>"; };
+		B54E4F6726049EDD007491C0 /* DdayListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DdayListCell.xib; sourceTree = "<group>"; };
 		B5FE0D86260312E00028DD9C /* SimpleDday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleDday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FE0D89260312E00028DD9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,7 +69,8 @@
 				B5FE0D89260312E00028DD9C /* AppDelegate.swift */,
 				B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */,
 				B5FE0D9F2603269C0028DD9C /* Common.swift */,
-				B523D9942603778C00C52185 /* DDayCell.swift */,
+				B54E4F6626049EDD007491C0 /* DdayListCell.swift */,
+				B54E4F6726049EDD007491C0 /* DdayListCell.xib */,
 				B5FE0D8D260312E00028DD9C /* MainViewController.swift */,
 				B5FE0D8F260312E00028DD9C /* Main.storyboard */,
 				B523D9982603806700C52185 /* AddDdayViewController.swift */,
@@ -136,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B54E4F6926049EDD007491C0 /* DdayListCell.xib in Resources */,
 				B5FE0D96260312E00028DD9C /* LaunchScreen.storyboard in Resources */,
 				B5FE0D93260312E00028DD9C /* Assets.xcassets in Resources */,
 				B523D99C2603807E00C52185 /* AddDdayViewController.storyboard in Resources */,
@@ -151,10 +155,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5FE0DA02603269C0028DD9C /* Common.swift in Sources */,
-				B523D9952603778C00C52185 /* DDayCell.swift in Sources */,
 				B523D9992603806700C52185 /* AddDdayViewController.swift in Sources */,
 				B5FE0D8E260312E00028DD9C /* MainViewController.swift in Sources */,
 				B5FE0D8A260312E00028DD9C /* AppDelegate.swift in Sources */,
+				B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */,
 				B5FE0D8C260312E00028DD9C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,11 +13,22 @@ class MainViewController: UIViewController {
 
     var ddayList:[DateCountModel] = []
     @IBOutlet weak var ddayListView: UITableView!
+    @IBOutlet weak var emptyCoverView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        ddayListView.register(UINib(nibName: "DdayListCell", bundle: nil), forCellReuseIdentifier: "DdayListCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if ddayList.isEmpty {
+            emptyCoverView.isHidden = false
+        } else {
+            emptyCoverView.isHidden = true
+        }
     }
     
     func setDateFormatter() {
@@ -40,14 +51,21 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ddayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ddayCell", for: indexPath) as! DDayCell
-        cell.titleLabel.text = ddayList[indexPath.row].title
-        cell.dateLabel.text = setDdayLabel(date: ddayList[indexPath.row].date, isDday: ddayList[indexPath.row].isDday)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DdayListCell", for: indexPath) as! DdayListCell
+        
+        cell.ddayTitle.text = ddayList[indexPath.row].title
+        cell.ddayDate.text = setDdayLabel(date: ddayList[indexPath.row].date, isDday: ddayList[indexPath.row].isDday)
+        cell.ddayImage.backgroundColor = ddayList[indexPath.row].bgColor
         
         return cell
     }
