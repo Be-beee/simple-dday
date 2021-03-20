@@ -66,6 +66,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.ddayTitle.text = ddayList[indexPath.row].title
         cell.ddayDate.text = setDdayLabel(date: ddayList[indexPath.row].date, isDday: ddayList[indexPath.row].isDday)
         cell.ddayImage.backgroundColor = ddayList[indexPath.row].bgColor
+        cell.ddayImage.image = ddayList[indexPath.row].bgImage
         
         return cell
     }
