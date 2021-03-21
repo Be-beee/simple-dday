@@ -27,12 +27,11 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     
     @IBOutlet weak var pushNotiSwitch: UISwitch!
     
+    @IBOutlet weak var memoInputView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        hideNavigationBarUnderline()
         setDateFormatter()
         setButtonUI()
         setTapGestureAtImageView()
@@ -129,6 +128,9 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         newData.bgColor = bgColor.randomElement()
         if isImageFilled {
             newData.bgImage = mainImageView.image
+        }
+        if !memoInputView.text.isEmpty {
+            newData.memo = memoInputView.text
         }
         
         self.performSegue(withIdentifier: "toMain", sender: self)

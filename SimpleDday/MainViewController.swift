@@ -17,22 +17,25 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        
+        hideNavigationBarUnderline()
         ddayListView.register(UINib(nibName: "DdayListCell", bundle: nil), forCellReuseIdentifier: "DdayListCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        refreshListView()
+    }
+    
+    func setDateFormatter() {
+        df.locale = Locale(identifier: "ko_KR")
+    }
+    
+    func refreshListView() {
+        ddayListView.reloadData()
         if ddayList.isEmpty {
             emptyCoverView.isHidden = false
         } else {
             emptyCoverView.isHidden = true
         }
-    }
-    
-    func setDateFormatter() {
-        df.locale = Locale(identifier: "ko_KR")
     }
     
     @IBAction func unwindToMain(sender: UIStoryboardSegue) {
@@ -83,6 +86,23 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return "D-day"
         } else {
             return "D+\(diff)"
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = UIStoryboard(name: "DetailDdayViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailDdayViewController") as! DetailDdayViewController
+        detailVC.selectedData = ddayList[indexPath.row]
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            ddayList.remove(at: indexPath.row)
+            refreshListView()
+        default:
+            break
         }
     }
     

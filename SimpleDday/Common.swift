@@ -14,4 +14,12 @@ struct DateCountModel {
     var shouldAlarm: Bool
     var bgImage: UIImage?
     var bgColor: UIColor?
+    var memo: String?
+}
+
+extension UIViewController {
+    func hideNavigationBarUnderline() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
 }

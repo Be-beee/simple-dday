@@ -11,6 +11,8 @@
 		B523D99C2603807E00C52185 /* AddDdayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */; };
 		B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E4F6626049EDD007491C0 /* DdayListCell.swift */; };
 		B54E4F6926049EDD007491C0 /* DdayListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54E4F6726049EDD007491C0 /* DdayListCell.xib */; };
+		B5890CD026071983001427A3 /* DetailDdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5890CCF26071983001427A3 /* DetailDdayViewController.swift */; };
+		B5890CD326071996001427A3 /* DetailDdayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5890CD226071996001427A3 /* DetailDdayViewController.storyboard */; };
 		B5FE0D8A260312E00028DD9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D89260312E00028DD9C /* AppDelegate.swift */; };
 		B5FE0D8C260312E00028DD9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */; };
 		B5FE0D8E260312E00028DD9C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D8D260312E00028DD9C /* MainViewController.swift */; };
@@ -25,6 +27,8 @@
 		B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDdayViewController.storyboard; sourceTree = "<group>"; };
 		B54E4F6626049EDD007491C0 /* DdayListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdayListCell.swift; sourceTree = "<group>"; };
 		B54E4F6726049EDD007491C0 /* DdayListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DdayListCell.xib; sourceTree = "<group>"; };
+		B5890CCF26071983001427A3 /* DetailDdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDdayViewController.swift; sourceTree = "<group>"; };
+		B5890CD226071996001427A3 /* DetailDdayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailDdayViewController.storyboard; sourceTree = "<group>"; };
 		B5FE0D86260312E00028DD9C /* SimpleDday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleDday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FE0D89260312E00028DD9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				B54E4F6726049EDD007491C0 /* DdayListCell.xib */,
 				B5FE0D8D260312E00028DD9C /* MainViewController.swift */,
 				B5FE0D8F260312E00028DD9C /* Main.storyboard */,
+				B5890CCF26071983001427A3 /* DetailDdayViewController.swift */,
+				B5890CD226071996001427A3 /* DetailDdayViewController.storyboard */,
 				B523D9982603806700C52185 /* AddDdayViewController.swift */,
 				B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */,
 				B5FE0D92260312E00028DD9C /* Assets.xcassets */,
@@ -143,6 +149,7 @@
 				B5FE0D96260312E00028DD9C /* LaunchScreen.storyboard in Resources */,
 				B5FE0D93260312E00028DD9C /* Assets.xcassets in Resources */,
 				B523D99C2603807E00C52185 /* AddDdayViewController.storyboard in Resources */,
+				B5890CD326071996001427A3 /* DetailDdayViewController.storyboard in Resources */,
 				B5FE0D91260312E00028DD9C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +167,7 @@
 				B5FE0D8A260312E00028DD9C /* AppDelegate.swift in Sources */,
 				B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */,
 				B5FE0D8C260312E00028DD9C /* SceneDelegate.swift in Sources */,
+				B5890CD026071983001427A3 /* DetailDdayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
