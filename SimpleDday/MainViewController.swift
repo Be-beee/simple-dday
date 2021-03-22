@@ -89,13 +89,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = UIStoryboard(name: "DetailDdayViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailDdayViewController") as! DetailDdayViewController
-        detailVC.selectedData = ddayList[indexPath.row]
-        
-        self.navigationController?.pushViewController(detailVC, animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
