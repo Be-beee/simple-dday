@@ -12,7 +12,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="AddDdayViewController" modalPresentationStyle="fullScreen" id="yhy-OX-w9r" customClass="AddDdayViewController" customModule="SimpleDday" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="0GC-9w-ZIR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -181,29 +181,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="aN9-jq-iVH">
-                                        <rect key="frame" x="0.0" y="665.5" width="414" height="140"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aN9-jq-iVH" id="tuG-cO-SuI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="memo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cFl-nB-gl2">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="140"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <color key="textColor" systemColor="labelColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="cFl-nB-gl2" firstAttribute="leading" secondItem="tuG-cO-SuI" secondAttribute="leading" constant="20" id="EBn-hA-lbu"/>
-                                                <constraint firstAttribute="bottom" secondItem="cFl-nB-gl2" secondAttribute="bottom" id="UcZ-Gk-YAV"/>
-                                                <constraint firstItem="cFl-nB-gl2" firstAttribute="top" secondItem="tuG-cO-SuI" secondAttribute="top" id="jMb-BW-Vyd"/>
-                                                <constraint firstAttribute="trailing" secondItem="cFl-nB-gl2" secondAttribute="trailing" constant="20" id="rzg-UQ-l7a"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -226,13 +203,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="414" height="1000"/>
+                    <size key="freeformSize" width="414" height="900"/>
                     <connections>
                         <outlet property="dateCountBtn" destination="bRT-I7-PDS" id="tQh-M6-rLm"/>
                         <outlet property="ddayBtn" destination="LCg-Oa-gI1" id="UrM-rJ-86h"/>
                         <outlet property="ddayDatePicker" destination="g0d-5V-mNh" id="eMF-MR-eJP"/>
                         <outlet property="mainImageView" destination="JqE-9O-0rD" id="qDk-OO-qDk"/>
-                        <outlet property="memoInputView" destination="cFl-nB-gl2" id="zQe-Wn-wac"/>
                         <outlet property="pushNotiSwitch" destination="iKo-DG-Rns" id="haw-HE-k71"/>
                         <outlet property="selectedDateLabel" destination="2Oj-Ws-WAn" id="usU-CX-ZHw"/>
                         <outlet property="titleTextField" destination="rgz-iL-2Xs" id="SrA-zq-gH1"/>
@@ -267,9 +243,6 @@
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="plus image" width="1433" height="1327"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

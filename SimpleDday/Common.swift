@@ -14,7 +14,6 @@ struct DateCountModel {
     var shouldAlarm: Bool
     var bgImage: UIImage?
     var bgColor: UIColor?
-    var memo: String?
 }
 
 extension UIViewController {
