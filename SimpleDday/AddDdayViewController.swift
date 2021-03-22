@@ -9,7 +9,7 @@ import UIKit
 
 class AddDdayViewController: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
-    let bgColor: [UIColor] = [.systemRed, .systemBlue, .systemPink, .systemTeal, .systemGreen, .systemOrange, .systemPurple, .systemIndigo, .systemYellow]
+    let bgColor: [UIColor] = Theme.main.colors
     
     let df = DateFormatter()
     var newData: DateCountModel = DateCountModel(date: Date(), title: "None", isDday: true, shouldAlarm: false)
