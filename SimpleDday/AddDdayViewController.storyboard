@@ -113,34 +113,50 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43.5" id="mld-gh-hJW">
-                                        <rect key="frame" x="0.0" y="542.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="mld-gh-hJW">
+                                        <rect key="frame" x="0.0" y="542.5" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mld-gh-hJW" id="Qag-vj-2nP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xwl-Bj-Siq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCg-Oa-gI1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="207" height="43.5"/>
-                                                            <state key="normal" title="디데이">
-                                                                <color key="titleColor" systemColor="systemIndigoColor"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="selectDday:" destination="yhy-OX-w9r" eventType="touchUpInside" id="xNN-IU-aNm"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRT-I7-PDS">
-                                                            <rect key="frame" x="207" y="0.0" width="207" height="43.5"/>
-                                                            <state key="normal" title="날짜수">
-                                                                <color key="titleColor" systemColor="systemIndigoColor"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="selectDateCount:" destination="yhy-OX-w9r" eventType="touchUpInside" id="7Bj-bI-phC"/>
-                                                            </connections>
-                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="jp3-lg-Yj4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="207" height="70"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디데이" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ1-ev-6nQ">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="42"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시험 D-1, 대회 D-30, …" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG6-TY-d2m">
+                                                                    <rect key="frame" x="0.0" y="42" width="207" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="vvv-R7-Bp9">
+                                                            <rect key="frame" x="207" y="0.0" width="207" height="70"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-zL-ZcI">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공부 D+1, 연애중 D+100, ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9v-d3-t0E">
+                                                                    <rect key="frame" x="0.0" y="44" width="207" height="26"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -157,7 +173,7 @@
                             <tableViewSection id="OFJ-zg-qJc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43.5" id="RoH-3l-cFa">
-                                        <rect key="frame" x="0.0" y="622" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="648.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RoH-3l-cFa" id="TOm-1h-QYn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -205,8 +221,8 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
-                        <outlet property="dateCountBtn" destination="bRT-I7-PDS" id="tQh-M6-rLm"/>
-                        <outlet property="ddayBtn" destination="LCg-Oa-gI1" id="UrM-rJ-86h"/>
+                        <outlet property="dateCountButton" destination="vvv-R7-Bp9" id="c3Y-Yb-z9O"/>
+                        <outlet property="ddayButton" destination="jp3-lg-Yj4" id="UOp-eL-tVe"/>
                         <outlet property="ddayDatePicker" destination="g0d-5V-mNh" id="eMF-MR-eJP"/>
                         <outlet property="mainImageView" destination="JqE-9O-0rD" id="qDk-OO-qDk"/>
                         <outlet property="pushNotiSwitch" destination="iKo-DG-Rns" id="haw-HE-k71"/>

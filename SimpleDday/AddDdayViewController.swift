@@ -19,8 +19,8 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     
-    @IBOutlet weak var ddayBtn: UIButton!
-    @IBOutlet weak var dateCountBtn: UIButton!
+    @IBOutlet weak var ddayButton: UIStackView!
+    @IBOutlet weak var dateCountButton: UIStackView!
     
     @IBOutlet weak var selectedDateLabel: UILabel!
     @IBOutlet weak var ddayDatePicker: UIDatePicker!
@@ -42,8 +42,13 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         selectedDateLabel.text = df.string(from: Date())
     }
     func setButtonUI() {
-        ddayBtn.setTitleColor(.systemIndigo, for: .normal)
-        dateCountBtn.setTitleColor(.systemGray, for: .normal)
+        setDdayMode()
+        
+        let ddayButtonTap = UITapGestureRecognizer(target: self, action: #selector(selectDday))
+        ddayButton.addGestureRecognizer(ddayButtonTap)
+        
+        let dateCountButtonTap = UITapGestureRecognizer(target: self, action: #selector(selectDateCount))
+        dateCountButton.addGestureRecognizer(dateCountButtonTap)
     }
     func setTapGestureAtImageView() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapEmptyImage))
@@ -99,17 +104,13 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         selectedDateLabel.text = df.string(from: ddayDatePicker.date)
     }
     
-    @IBAction func selectDday(_ sender: UIButton) {
-        ddayBtn.setTitleColor(.systemIndigo, for: .normal)
-        dateCountBtn.setTitleColor(.systemGray, for: .normal)
-        
+    @objc func selectDday() {
+        setDdayMode()
         newData.isDday = true
     }
     
-    @IBAction func selectDateCount(_ sender: UIButton) {
-        ddayBtn.setTitleColor(.systemGray, for: .normal)
-        dateCountBtn.setTitleColor(.systemIndigo, for: .normal)
-        
+    @objc func selectDateCount(_ sender: UIButton) {
+        setDateCountMode()
         newData.isDday = false
     }
     
@@ -129,5 +130,23 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         }
         
         self.performSegue(withIdentifier: "toMain", sender: self)
+    }
+}
+
+extension AddDdayViewController {
+    func setDdayMode() {
+        ddayButton.backgroundColor = Theme.main.colors[6]
+        dateCountButton.backgroundColor = .clear
+        
+        ddayDatePicker.minimumDate = Date()
+        ddayDatePicker.maximumDate = nil
+    }
+    
+    func setDateCountMode() {
+        ddayButton.backgroundColor = .clear
+        dateCountButton.backgroundColor = Theme.main.colors[4]
+        
+        ddayDatePicker.minimumDate = nil
+        ddayDatePicker.maximumDate = Date()
     }
 }

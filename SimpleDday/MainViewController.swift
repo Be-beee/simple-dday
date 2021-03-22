@@ -83,9 +83,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         if diff < 0 {
             return "D\(diff)"
         } else if diff == 0 {
-            return "D-day"
+            if isDday {
+                return "D-day"
+            } else {
+                return "D+1"
+            }
         } else {
-            return "D+\(diff)"
+            if isDday {
+                return "D+\(diff)"
+            } else {
+                return "D+\(diff+1)"
+            }
         }
     }
     
