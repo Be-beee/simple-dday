@@ -11,7 +11,7 @@ class MainViewController: UIViewController {
     
     let df = DateFormatter()
 
-    var ddayList:[DateCountModel] = []
+//    var ddayList:[DateCountModel] = []
     @IBOutlet weak var ddayListView: UITableView!
     @IBOutlet weak var emptyCoverView: UIView!
     
@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
     
     func refreshListView() {
         ddayListView.reloadData()
-        if ddayList.isEmpty {
+        if DdayData.shared.ddayList.isEmpty {
             emptyCoverView.isHidden = false
         } else {
             emptyCoverView.isHidden = true
@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
     @IBAction func unwindToMain(sender: UIStoryboardSegue) {
         print("add data")
         let vc = sender.source as! AddDdayViewController
-        ddayList.append(vc.newData)
+        DdayData.shared.ddayList.append(vc.newData)
         ddayListView.reloadData()
     }
     
@@ -60,47 +60,24 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ddayList.count
+        return DdayData.shared.ddayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DdayListCell", for: indexPath) as! DdayListCell
         
-        cell.ddayTitle.text = ddayList[indexPath.row].title
-        cell.ddayDate.text = setDdayLabel(date: ddayList[indexPath.row].date, isDday: ddayList[indexPath.row].isDday)
-        cell.ddayImage.backgroundColor = ddayList[indexPath.row].bgColor
-        cell.ddayImage.image = ddayList[indexPath.row].bgImage
+        cell.ddayTitle.text = DdayData.shared.ddayList[indexPath.row].title
+        cell.ddayDate.text = DdayLabelManager.setDdayLabel(date: DdayData.shared.ddayList[indexPath.row].date, isDday: DdayData.shared.ddayList[indexPath.row].isDday)
+        cell.ddayImage.backgroundColor = DdayData.shared.ddayList[indexPath.row].bgColor
+        cell.ddayImage.image = DdayData.shared.ddayList[indexPath.row].bgImage
         
         return cell
-    }
-    
-    func setDdayLabel(date: Date, isDday: Bool) -> String {
-        let today = Date()
-        let timeInterval = today.timeIntervalSince(date)
-        let diff = Int(round(timeInterval/(60*60*24)))
-        print(diff)
-        
-        if diff < 0 {
-            return "D\(diff)"
-        } else if diff == 0 {
-            if isDday {
-                return "D-day"
-            } else {
-                return "D+1"
-            }
-        } else {
-            if isDday {
-                return "D+\(diff)"
-            } else {
-                return "D+\(diff+1)"
-            }
-        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            ddayList.remove(at: indexPath.row)
+            DdayData.shared.ddayList.remove(at: indexPath.row)
             refreshListView()
         default:
             break

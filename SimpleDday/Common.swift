@@ -37,3 +37,37 @@ struct Theme {
         
     ]
 }
+
+struct DdayData {
+    static var shared = DdayData()
+    var ddayList: [DateCountModel] = [
+        DateCountModel(date: Date(), title: "iOS 공부 시작", isDday: false, shouldAlarm: false, bgImage: nil, bgColor: Theme.main.colors[0]),
+        DateCountModel(date: Date(), title: "프로젝트 테스트", isDday: true, shouldAlarm: false, bgImage: nil, bgColor: Theme.main.colors[1])
+        // test data
+    ]
+}
+
+struct DdayLabelManager {
+    static func setDdayLabel(date: Date, isDday: Bool) -> String {
+        let today = Date()
+        let timeInterval = today.timeIntervalSince(date)
+        let diff = Int(round(timeInterval/(60*60*24)))
+        print(diff)
+        
+        if diff < 0 {
+            return "D\(diff)"
+        } else if diff == 0 {
+            if isDday {
+                return "D-day"
+            } else {
+                return "D+1"
+            }
+        } else {
+            if isDday {
+                return "D+\(diff)"
+            } else {
+                return "D+\(diff+1)"
+            }
+        }
+    }
+}
