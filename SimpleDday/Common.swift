@@ -40,11 +40,7 @@ struct Theme {
 
 struct DdayData {
     static var shared = DdayData()
-    var ddayList: [DateCountModel] = [
-        DateCountModel(date: Date(), title: "iOS 공부 시작", isDday: false, shouldAlarm: false, bgImage: nil, bgColor: Theme.main.colors[0]),
-        DateCountModel(date: Date(), title: "프로젝트 테스트", isDday: true, shouldAlarm: false, bgImage: nil, bgColor: Theme.main.colors[1])
-        // test data
-    ]
+    var ddayList: [DateCountModel] = []
 }
 
 struct DdayLabelManager {
