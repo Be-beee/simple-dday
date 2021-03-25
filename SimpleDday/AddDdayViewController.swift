@@ -9,8 +9,6 @@ import UIKit
 
 class AddDdayViewController: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
-    let bgColor: [UIColor] = Theme.main.colors
-    
     let df = DateFormatter()
     var newData: DateCountModel = DateCountModel(date: Date(), title: "None", isDday: true, shouldAlarm: false)
     
@@ -124,7 +122,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         }
         newData.date = ddayDatePicker.date
         newData.shouldAlarm = pushNotiSwitch.isOn
-        newData.bgColor = bgColor.randomElement()
+        newData.bgColor = Theme.main.colors.randomElement()?.value
         if isImageFilled {
             newData.bgImage = mainImageView.image
         }
@@ -135,7 +133,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
 
 extension AddDdayViewController {
     func setDdayMode() {
-        ddayButton.backgroundColor = Theme.main.colors[6]
+        ddayButton.backgroundColor = Theme.main.colors["green"]
         dateCountButton.backgroundColor = .clear
         
         ddayDatePicker.minimumDate = Date()
@@ -144,7 +142,7 @@ extension AddDdayViewController {
     
     func setDateCountMode() {
         ddayButton.backgroundColor = .clear
-        dateCountButton.backgroundColor = Theme.main.colors[4]
+        dateCountButton.backgroundColor = Theme.main.colors["red"]
         
         ddayDatePicker.minimumDate = nil
         ddayDatePicker.maximumDate = Date()
