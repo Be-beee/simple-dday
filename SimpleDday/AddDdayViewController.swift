@@ -122,9 +122,9 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         }
         newData.date = ddayDatePicker.date
         newData.shouldAlarm = pushNotiSwitch.isOn
-        newData.bgColor = Theme.main.colors.randomElement()?.value
+        newData.bgColor = Theme.main.colors.randomElement()?.key
         if isImageFilled {
-            newData.bgImage = mainImageView.image
+            newData.bgImage = mainImageView.image?.pngData()
         }
         
         self.performSegue(withIdentifier: "toMain", sender: self)

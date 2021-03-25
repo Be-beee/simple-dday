@@ -11,7 +11,6 @@ class MainViewController: UIViewController {
     
     let df = DateFormatter()
 
-//    var ddayList:[DateCountModel] = []
     @IBOutlet weak var ddayListView: UITableView!
     @IBOutlet weak var emptyCoverView: UIView!
     
@@ -42,7 +41,8 @@ class MainViewController: UIViewController {
         print("add data")
         let vc = sender.source as! AddDdayViewController
         DdayData.shared.ddayList.append(vc.newData)
-        ddayListView.reloadData()
+        DdayData.shared.saveData()
+        refreshListView()
     }
     
     @IBAction func addDday(_ sender: UIBarButtonItem) {
@@ -68,8 +68,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.ddayTitle.text = DdayData.shared.ddayList[indexPath.row].title
         cell.ddayDate.text = DdayLabelManager.setDdayLabel(date: DdayData.shared.ddayList[indexPath.row].date, isDday: DdayData.shared.ddayList[indexPath.row].isDday)
-        cell.ddayImage.backgroundColor = DdayData.shared.ddayList[indexPath.row].bgColor
-        cell.ddayImage.image = DdayData.shared.ddayList[indexPath.row].bgImage
+        
+        if let colorName = DdayData.shared.ddayList[indexPath.row].bgColor {
+            cell.ddayImage.backgroundColor = Theme.main.colors[colorName]
+        }
+        if let imgData = DdayData.shared.ddayList[indexPath.row].bgImage {
+            cell.ddayImage.image = UIImage(data: imgData)
+        }
         
         return cell
     }
@@ -78,6 +83,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         switch editingStyle {
         case .delete:
             DdayData.shared.ddayList.remove(at: indexPath.row)
+            DdayData.shared.saveData()
             refreshListView()
         default:
             break

@@ -11,6 +11,9 @@
 		B523D99C2603807E00C52185 /* AddDdayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */; };
 		B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E4F6626049EDD007491C0 /* DdayListCell.swift */; };
 		B54E4F6926049EDD007491C0 /* DdayListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54E4F6726049EDD007491C0 /* DdayListCell.xib */; };
+		B5A0230C260C391900A4C6A7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0230B260C391900A4C6A7 /* Storage.swift */; };
+		B5A02313260C497900A4C6A7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0230B260C391900A4C6A7 /* Storage.swift */; };
+		B5A02317260C497A00A4C6A7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0230B260C391900A4C6A7 /* Storage.swift */; };
 		B5D35355260A04F9007A2795 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D35354260A04F9007A2795 /* WidgetKit.framework */; };
 		B5D35357260A04F9007A2795 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D35356260A04F9007A2795 /* SwiftUI.framework */; };
 		B5D3535A260A04F9007A2795 /* DdayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D35359260A04F9007A2795 /* DdayWidget.swift */; };
@@ -70,6 +73,7 @@
 		B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDdayViewController.storyboard; sourceTree = "<group>"; };
 		B54E4F6626049EDD007491C0 /* DdayListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdayListCell.swift; sourceTree = "<group>"; };
 		B54E4F6726049EDD007491C0 /* DdayListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DdayListCell.xib; sourceTree = "<group>"; };
+		B5A0230B260C391900A4C6A7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		B5D35352260A04F9007A2795 /* DdayWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DdayWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D35354260A04F9007A2795 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		B5D35356260A04F9007A2795 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -176,6 +180,7 @@
 				B5FE0D89260312E00028DD9C /* AppDelegate.swift */,
 				B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */,
 				B5FE0D9F2603269C0028DD9C /* Common.swift */,
+				B5A0230B260C391900A4C6A7 /* Storage.swift */,
 				B54E4F6626049EDD007491C0 /* DdayListCell.swift */,
 				B54E4F6726049EDD007491C0 /* DdayListCell.xib */,
 				B5FE0D8D260312E00028DD9C /* MainViewController.swift */,
@@ -323,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D3535A260A04F9007A2795 /* DdayWidget.swift in Sources */,
+				B5A02313260C497900A4C6A7 /* Storage.swift in Sources */,
 				B5D353C3260A2784007A2795 /* Common.swift in Sources */,
 				B5D353B8260A20BB007A2795 /* ConfigurationIntent.intentdefinition in Sources */,
 			);
@@ -333,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D35375260A07B5007A2795 /* IntentHandler.swift in Sources */,
+				B5A02317260C497A00A4C6A7 /* Storage.swift in Sources */,
 				B5D353C7260A2785007A2795 /* Common.swift in Sources */,
 				B5D353BC260A20BB007A2795 /* ConfigurationIntent.intentdefinition in Sources */,
 			);
@@ -347,6 +354,7 @@
 				B5FE0D8E260312E00028DD9C /* MainViewController.swift in Sources */,
 				B5FE0D8A260312E00028DD9C /* AppDelegate.swift in Sources */,
 				B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */,
+				B5A0230C260C391900A4C6A7 /* Storage.swift in Sources */,
 				B5FE0D8C260312E00028DD9C /* SceneDelegate.swift in Sources */,
 				B5D3539C260A198E007A2795 /* ConfigurationIntent.intentdefinition in Sources */,
 			);

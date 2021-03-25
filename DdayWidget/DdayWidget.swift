@@ -49,8 +49,10 @@ struct DdayWidgetEntryView : View {
     var body: some View {
         if let model = entry.receivedData {
             ZStack {
-                Color(model.bgColor ?? .systemBackground)
-                Image(uiImage: model.bgImage ?? UIImage())
+                if let colorName = model.bgColor {
+                    Color(Theme.main.colors[colorName] ?? .systemBackground)
+                }
+                Image(uiImage: model.dataToImage() ?? UIImage())
                 VStack {
                     Text(model.title)
                     Text(DdayLabelManager.setDdayLabel(date: model.date, isDday: model.isDday))

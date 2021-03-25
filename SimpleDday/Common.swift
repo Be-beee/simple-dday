@@ -7,13 +7,20 @@
 
 import UIKit
 
-struct DateCountModel {
+struct DateCountModel: Codable {
     var date: Date
     var title: String
     var isDday: Bool // d-day or count date
     var shouldAlarm: Bool
-    var bgImage: UIImage?
-    var bgColor: UIColor?
+    var bgImage: Data?
+    var bgColor: String?
+    
+    func dataToImage() -> UIImage? {
+        if let imgData = bgImage {
+            return UIImage(data: imgData)
+        }
+        return nil
+    }
 }
 
 extension UIViewController {
@@ -40,7 +47,17 @@ struct Theme {
 
 struct DdayData {
     static var shared = DdayData()
-    var ddayList: [DateCountModel] = []
+    var ddayList: [DateCountModel] = {
+        return Storage.load(at: "ddayList.json", [DateCountModel].self) ?? []
+    }()
+    
+    func saveData() {
+        Storage.save(ddayList, at: "ddayList.json")
+    }
+    
+    mutating func loadData() {
+        ddayList = Storage.load(at: "ddayList.json", [DateCountModel].self) ?? []
+    }
 }
 
 struct DdayLabelManager {
