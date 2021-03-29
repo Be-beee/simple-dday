@@ -12,14 +12,11 @@ struct DateCountModel: Codable {
     var title: String
     var isDday: Bool // d-day or count date
     var shouldAlarm: Bool
-    var bgImage: Data?
-    var bgColor: String?
+    var bgImage: Data
+    var bgColor: String
     
     func dataToImage() -> UIImage? {
-        if let imgData = bgImage {
-            return UIImage(data: imgData)
-        }
-        return nil
+        return UIImage(data: bgImage)
     }
 }
 
@@ -47,16 +44,43 @@ struct Theme {
 
 struct DdayData {
     static var shared = DdayData()
-    var ddayList: [DateCountModel] = {
-        return Storage.load(at: "ddayList.json", [DateCountModel].self) ?? []
-    }()
+    var ddayList: [DateCountModel] = []
+    init() {
+        ddayList = decodeData() ?? []
+    }
     
     func saveData() {
-        Storage.save(ddayList, at: "ddayList.json")
+        if let data = encodeData() {
+            UserDefaults.shared?.saveDataAtShared(data, at: "ddayList")
+        }
     }
     
     mutating func loadData() {
-        ddayList = Storage.load(at: "ddayList.json", [DateCountModel].self) ?? []
+        ddayList = decodeData() ?? []
+    }
+    
+    func encodeData() -> Data? {
+        let encoder = JSONEncoder()
+        do {
+            let encoded = try encoder.encode(ddayList)
+            return encoded
+        } catch {
+            print("encode error \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    func decodeData() -> [DateCountModel]? {
+        guard let data = UserDefaults.shared?.loadDataFromShared(at: "ddayList") else { return nil }
+        let decoder = JSONDecoder()
+        do {
+            let decoded = try decoder.decode([DateCountModel].self, from: data)
+            
+            return decoded
+        } catch {
+            print("decode error \(error.localizedDescription)")
+            return nil
+        }
     }
 }
 
@@ -82,5 +106,21 @@ struct DdayLabelManager {
                 return "D+\(diff+1)"
             }
         }
+    }
+}
+
+extension UserDefaults {
+    static var shared: UserDefaults? {
+        let shared = UserDefaults(suiteName: "group.com.sbk.ddaycontainer")
+        return shared
+    }
+    func saveDataAtShared(_ data: Data, at path: String) {
+        UserDefaults.shared?.set(data, forKey: path)
+        UserDefaults.shared?.synchronize()
+    }
+    
+    func loadDataFromShared(at path: String) -> Data? {
+        let data = UserDefaults.shared?.data(forKey: "ddayList")
+        return data
     }
 }

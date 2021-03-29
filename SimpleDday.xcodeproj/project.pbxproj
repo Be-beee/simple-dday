@@ -73,6 +73,9 @@
 		B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDdayViewController.storyboard; sourceTree = "<group>"; };
 		B54E4F6626049EDD007491C0 /* DdayListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdayListCell.swift; sourceTree = "<group>"; };
 		B54E4F6726049EDD007491C0 /* DdayListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DdayListCell.xib; sourceTree = "<group>"; };
+		B592BE3C260EF1F300E8367B /* SimpleDday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleDday.entitlements; sourceTree = "<group>"; };
+		B592BE3D260EF1FF00E8367B /* DdayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DdayWidgetExtension.entitlements; sourceTree = "<group>"; };
+		B592BE41260EF20500E8367B /* DdayIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DdayIntent.entitlements; sourceTree = "<group>"; };
 		B5A0230B260C391900A4C6A7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		B5D35352260A04F9007A2795 /* DdayWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DdayWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D35354260A04F9007A2795 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -147,6 +150,7 @@
 		B5D35373260A07B5007A2795 /* DdayIntent */ = {
 			isa = PBXGroup;
 			children = (
+				B592BE41260EF20500E8367B /* DdayIntent.entitlements */,
 				B5D35374260A07B5007A2795 /* IntentHandler.swift */,
 				B5D35376260A07B5007A2795 /* Info.plist */,
 			);
@@ -156,6 +160,7 @@
 		B5FE0D7D260312E00028DD9C = {
 			isa = PBXGroup;
 			children = (
+				B592BE3D260EF1FF00E8367B /* DdayWidgetExtension.entitlements */,
 				B5FE0D88260312E00028DD9C /* SimpleDday */,
 				B5D35358260A04F9007A2795 /* DdayWidget */,
 				B5D35373260A07B5007A2795 /* DdayIntent */,
@@ -177,6 +182,7 @@
 		B5FE0D88260312E00028DD9C /* SimpleDday */ = {
 			isa = PBXGroup;
 			children = (
+				B592BE3C260EF1F300E8367B /* SimpleDday.entitlements */,
 				B5FE0D89260312E00028DD9C /* AppDelegate.swift */,
 				B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */,
 				B5FE0D9F2603269C0028DD9C /* Common.swift */,
@@ -400,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DdayWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = DdayWidget/Info.plist;
@@ -421,6 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DdayWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = DdayWidget/Info.plist;
@@ -440,6 +448,7 @@
 		B5D3537B260A07B5007A2795 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DdayIntent/DdayIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = DdayIntent/Info.plist;
@@ -459,6 +468,7 @@
 		B5D3537C260A07B5007A2795 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DdayIntent/DdayIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = DdayIntent/Info.plist;
@@ -597,6 +607,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SimpleDday/SimpleDday.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = SimpleDday/Info.plist;
@@ -617,6 +628,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SimpleDday/SimpleDday.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = SimpleDday/Info.plist;

@@ -22,8 +22,15 @@ struct Provider: IntentTimelineProvider {
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [DdayEntry] = []
         let data = loadModelFromConfig(for: configuration)
-        let entry = DdayEntry(date: Date(), configuration: configuration, receivedData: data)
+        let currentDate = Date()
+        let entry = DdayEntry(date: currentDate, configuration: configuration, receivedData: data)
         entries.append(entry)
+//        for offset in 0 ..< 5 {
+//            let entryDate = Calendar.current.date(byAdding: .hour, value: offset, to: currentDate)!
+//            let entry = DdayEntry(date: entryDate, configuration: configuration, receivedData: data)
+//            entries.append(entry)
+//        }
+//        let timeline = Timeline(entries: entries, policy: .atEnd)
         let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
@@ -53,6 +60,7 @@ struct DdayWidgetEntryView : View {
                     Color(Theme.main.colors[colorName] ?? .systemBackground)
                 }
                 Image(uiImage: model.dataToImage() ?? UIImage())
+                    .resizable()
                 VStack {
                     Text(model.title)
                     Text(DdayLabelManager.setDdayLabel(date: model.date, isDday: model.isDday))
@@ -61,7 +69,7 @@ struct DdayWidgetEntryView : View {
                 }
             }
         } else {
-            Text("길게 터치하여\n위젯 편집")
+            Text("길게 탭하여\n위젯 편집")
                 .multilineTextAlignment(.center)
         }
     }

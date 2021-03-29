@@ -10,7 +10,7 @@ import UIKit
 class AddDdayViewController: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     let df = DateFormatter()
-    var newData: DateCountModel = DateCountModel(date: Date(), title: "None", isDday: true, shouldAlarm: false)
+    var newData: DateCountModel = DateCountModel(date: Date(), title: "None", isDday: true, shouldAlarm: false, bgImage: Data(), bgColor: "None")
     
     var isImageFilled = false
 
@@ -122,9 +122,10 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         }
         newData.date = ddayDatePicker.date
         newData.shouldAlarm = pushNotiSwitch.isOn
-        newData.bgColor = Theme.main.colors.randomElement()?.key
+        newData.bgColor = Theme.main.colors.randomElement()?.key ?? "None"
         if isImageFilled {
-            newData.bgImage = mainImageView.image?.pngData()
+            newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
+            print(newData.bgImage)
         }
         
         self.performSegue(withIdentifier: "toMain", sender: self)

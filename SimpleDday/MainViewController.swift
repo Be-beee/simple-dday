@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 class MainViewController: UIViewController {
     
@@ -29,6 +30,7 @@ class MainViewController: UIViewController {
     }
     
     func refreshListView() {
+//        WidgetCenter.shared.reloadAllTimelines()
         ddayListView.reloadData()
         if DdayData.shared.ddayList.isEmpty {
             emptyCoverView.isHidden = false
@@ -69,12 +71,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.ddayTitle.text = DdayData.shared.ddayList[indexPath.row].title
         cell.ddayDate.text = DdayLabelManager.setDdayLabel(date: DdayData.shared.ddayList[indexPath.row].date, isDday: DdayData.shared.ddayList[indexPath.row].isDday)
         
-        if let colorName = DdayData.shared.ddayList[indexPath.row].bgColor {
-            cell.ddayImage.backgroundColor = Theme.main.colors[colorName]
-        }
-        if let imgData = DdayData.shared.ddayList[indexPath.row].bgImage {
-            cell.ddayImage.image = UIImage(data: imgData)
-        }
+        let colorName = DdayData.shared.ddayList[indexPath.row].bgColor
+        cell.ddayImage.backgroundColor = Theme.main.colors[colorName]
+        
+        let imgData = DdayData.shared.ddayList[indexPath.row].bgImage
+        cell.ddayImage.image = UIImage(data: imgData)
         
         return cell
     }
