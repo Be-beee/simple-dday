@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        DdayData.shared.loadListData()
+        DdayData.shared.loadLabelsData()
         refreshListView()
     }
     
@@ -42,6 +44,7 @@ class MainViewController: UIViewController {
     @IBAction func unwindToMain(sender: UIStoryboardSegue) {
         print("add data")
         let vc = sender.source as! AddDdayViewController
+        DdayData.shared.ddayListLabels.append("\(vc.newData.title) \(DdayLabelManager.setDdayLabel(date: vc.newData.date, isDday: vc.newData.isDday))")
         DdayData.shared.ddayList.append(vc.newData)
         DdayData.shared.saveData()
         refreshListView()
@@ -83,6 +86,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
+            DdayData.shared.ddayListLabels.remove(at: indexPath.row)
             DdayData.shared.ddayList.remove(at: indexPath.row)
             DdayData.shared.saveData()
             refreshListView()

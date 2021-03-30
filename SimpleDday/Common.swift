@@ -45,42 +45,19 @@ struct Theme {
 struct DdayData {
     static var shared = DdayData()
     var ddayList: [DateCountModel] = []
-    init() {
-        ddayList = decodeData() ?? []
-    }
+    var ddayListLabels: [String] = []
     
     func saveData() {
-        if let data = encodeData() {
-            UserDefaults.shared?.saveDataAtShared(data, at: "ddayList")
-        }
+        Storage.save(ddayList, at: "ddayList.json")
+        UserDefaults.shared?.saveDataAtShared(ddayListLabels, at: "ddayListLabels")
     }
     
-    mutating func loadData() {
-        ddayList = decodeData() ?? []
+    mutating func loadListData() {
+        ddayList = Storage.load(at: "ddayList.json", [DateCountModel].self) ?? []
     }
     
-    func encodeData() -> Data? {
-        let encoder = JSONEncoder()
-        do {
-            let encoded = try encoder.encode(ddayList)
-            return encoded
-        } catch {
-            print("encode error \(error.localizedDescription)")
-            return nil
-        }
-    }
-    
-    func decodeData() -> [DateCountModel]? {
-        guard let data = UserDefaults.shared?.loadDataFromShared(at: "ddayList") else { return nil }
-        let decoder = JSONDecoder()
-        do {
-            let decoded = try decoder.decode([DateCountModel].self, from: data)
-            
-            return decoded
-        } catch {
-            print("decode error \(error.localizedDescription)")
-            return nil
-        }
+    mutating func loadLabelsData() {
+        ddayListLabels = UserDefaults.shared?.loadDataFromShared(at: "ddayListLabels") ?? []
     }
 }
 
@@ -114,13 +91,13 @@ extension UserDefaults {
         let shared = UserDefaults(suiteName: "group.com.sbk.ddaycontainer")
         return shared
     }
-    func saveDataAtShared(_ data: Data, at path: String) {
+    func saveDataAtShared(_ data: [String], at path: String) {
         UserDefaults.shared?.set(data, forKey: path)
         UserDefaults.shared?.synchronize()
     }
     
-    func loadDataFromShared(at path: String) -> Data? {
-        let data = UserDefaults.shared?.data(forKey: "ddayList")
+    func loadDataFromShared(at path: String) -> [String]? {
+        let data = UserDefaults.shared?.stringArray(forKey: path)
         return data
     }
 }

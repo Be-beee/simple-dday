@@ -141,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D35359260A04F9007A2795 /* DdayWidget.swift */,
+				B5D3539B260A198E007A2795 /* ConfigurationIntent.intentdefinition */,
 				B5D3535C260A04F9007A2795 /* Assets.xcassets */,
 				B5D3535E260A04F9007A2795 /* Info.plist */,
 			);
@@ -195,7 +196,6 @@
 				B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */,
 				B5FE0D92260312E00028DD9C /* Assets.xcassets */,
 				B5FE0D94260312E00028DD9C /* LaunchScreen.storyboard */,
-				B5D3539B260A198E007A2795 /* ConfigurationIntent.intentdefinition */,
 				B5FE0D97260312E00028DD9C /* Info.plist */,
 			);
 			path = SimpleDday;

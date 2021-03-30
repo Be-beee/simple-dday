@@ -18,10 +18,10 @@ class IntentHandler: INExtension, ConfigurationIntentHandling {
     
     func provideDdayItemOptionsCollection(for intent: ConfigurationIntent, with completion: @escaping (INObjectCollection<DateCount>?, Error?) -> Void) {
         var items: [DateCount] = []
-//        DdayData.shared.loadData()
-        for idx in DdayData.shared.ddayList.indices {
-            let data = DdayData.shared.ddayList[idx]
-            let newData = DateCount(identifier: "\(idx)", display: "\(data.title) \(DdayLabelManager.setDdayLabel(date:data.date, isDday: data.isDday))")
+        DdayData.shared.loadLabelsData()
+        for idx in DdayData.shared.ddayListLabels.indices {
+            let data = DdayData.shared.ddayListLabels[idx]
+            let newData = DateCount(identifier: "\(idx)", display: data)
             items.append(newData)
         }
         

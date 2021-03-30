@@ -8,7 +8,7 @@
 import UIKit
 
 struct Storage {
-    static let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let documentURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.sbk.ddaycontainer")!
     
     @discardableResult
     static func save<T: Encodable>(_ obj: T, at path: String) -> Bool {
