@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
     @IBAction func unwindToMain(sender: UIStoryboardSegue) {
         print("add data")
         let vc = sender.source as! AddDdayViewController
-        DdayData.shared.ddayListLabels.append("\(vc.newData.title) \(DdayLabelManager.setDdayLabel(date: vc.newData.date, isDday: vc.newData.isDday))")
+        DdayData.shared.ddayListLabels.append(vc.newData.title)
         DdayData.shared.ddayList.append(vc.newData)
         DdayData.shared.saveData()
         refreshListView()
