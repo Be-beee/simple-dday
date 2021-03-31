@@ -31,6 +31,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         setDateFormatter()
         setButtonUI()
         setTapGestureAtImageView()
+        setTapGestureAtView()
     }
     
     func setDateFormatter() {
@@ -76,6 +77,15 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
             
             self.present(modifyAlert, animated: true, completion: nil)
         }
+    }
+    
+    func setTapGestureAtView() {
+        let tapBG = UITapGestureRecognizer(target: self, action: #selector(tapBackground))
+        self.view.addGestureRecognizer(tapBG)
+    }
+    
+    @objc func tapBackground() {
+        self.titleTextField.resignFirstResponder()
     }
     
     func loadImagePickerVC() {
