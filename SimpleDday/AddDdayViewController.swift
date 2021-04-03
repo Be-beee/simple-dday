@@ -14,6 +14,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     
     var isImageFilled = false
 
+    @IBOutlet weak var checkBarButton: UIBarButtonItem!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     
@@ -41,6 +42,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         selectedDateLabel.text = df.string(from: Date())
     }
     func setButtonUI() {
+        checkBarButton.isEnabled = false
         setDdayMode()
         
         let ddayButtonTap = UITapGestureRecognizer(target: self, action: #selector(selectDday))
@@ -105,6 +107,13 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func titleDidChange(_ sender: UITextField) {
+        if let text = titleTextField.text, !text.isEmpty {
+            checkBarButton.isEnabled = true
+        } else {
+            checkBarButton.isEnabled = false
+        }
+    }
     
     @IBAction func selectDate(_ sender: UIDatePicker) {
         selectedDateLabel.text = df.string(from: ddayDatePicker.date)

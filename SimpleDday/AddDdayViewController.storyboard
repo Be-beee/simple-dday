@@ -48,6 +48,9 @@
                                                     <rect key="frame" x="20" y="0.0" width="394" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="titleDidChange:" destination="yhy-OX-w9r" eventType="editingChanged" id="Rd8-Na-JRH"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -221,6 +224,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
+                        <outlet property="checkBarButton" destination="2e8-w7-gwE" id="1Et-xo-zzh"/>
                         <outlet property="dateCountButton" destination="vvv-R7-Bp9" id="c3Y-Yb-z9O"/>
                         <outlet property="ddayButton" destination="jp3-lg-Yj4" id="UOp-eL-tVe"/>
                         <outlet property="ddayDatePicker" destination="g0d-5V-mNh" id="eMF-MR-eJP"/>
