@@ -61,19 +61,17 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         } else {
             let modifyAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let modify = UIAlertAction(title: "이미지 변경", style: .default) { _ in
-                let imagePickerController = UIImagePickerController()
-                imagePickerController.sourceType = .photoLibrary
-                imagePickerController.delegate = self
-                
-                self.present(imagePickerController, animated: true, completion: nil)
+                self.loadImagePickerVC()
             }
             let delete = UIAlertAction(title: "이미지 삭제", style: .destructive) { _ in
                 self.mainImageView.image = UIImage(named: "plus image")
                 self.isImageFilled = false
             }
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
             
             modifyAlert.addAction(modify)
             modifyAlert.addAction(delete)
+            modifyAlert.addAction(cancel)
             
             self.present(modifyAlert, animated: true, completion: nil)
         }
