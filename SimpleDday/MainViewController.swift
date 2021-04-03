@@ -14,9 +14,11 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var ddayListView: UITableView!
     @IBOutlet weak var emptyCoverView: UIView!
+    @IBOutlet weak var floatingBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setFloatingBtn()
         hideNavigationBarUnderline()
         ddayListView.register(UINib(nibName: "DdayListCell", bundle: nil), forCellReuseIdentifier: "DdayListCell")
     }
@@ -25,6 +27,15 @@ class MainViewController: UIViewController {
         DdayData.shared.loadListData()
         DdayData.shared.loadLabelsData()
         refreshListView()
+    }
+    
+    func setFloatingBtn() {
+        let color1 = Theme.main.colors["lemon"] ?? .systemBackground
+        let color2 = Theme.main.colors["soda"] ?? .systemBackground
+        
+        floatingBtn.setGradient(color1: color1, color2: color2)
+        floatingBtn.setSystemImage(systemName: "plus")
+        floatingBtn.setBackgroundShadow()
     }
     
     func setDateFormatter() {
@@ -50,7 +61,7 @@ class MainViewController: UIViewController {
         refreshListView()
     }
     
-    @IBAction func addDday(_ sender: UIBarButtonItem) {
+    @IBAction func addDday(_ sender: UIButton) {
         let addDdayVC = UIStoryboard(name: "AddDdayViewController", bundle: nil).instantiateViewController(withIdentifier: "NavVC") as! UINavigationController
         self.present(addDdayVC, animated: true, completion: nil)
     }
@@ -95,4 +106,46 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+}
+
+// MARK:- Floating Button Setting
+extension UIButton {
+    func setGradient(color1: UIColor, color2: UIColor) {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.colors = [color1.cgColor, color2.cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = bounds
+        gradient.setCornerRadius()
+        
+        
+        layer.addSublayer(gradient)
+    }
+    func setSystemImage(systemName: String) {
+        let bgLayer = CALayer()
+        let maskImageLayer = CALayer()
+        maskImageLayer.frame = layer.bounds
+        maskImageLayer.contents = UIImage(systemName: systemName)?.cgImage
+        maskImageLayer.transform = CATransform3DMakeScale(0.4, 0.4, 1)
+        
+        bgLayer.mask = maskImageLayer
+        bgLayer.backgroundColor = UIColor.white.cgColor
+        
+        bgLayer.frame = layer.bounds
+        bgLayer.setCornerRadius()
+        
+        layer.addSublayer(bgLayer)
+    }
+    func setBackgroundShadow() {
+        layer.shadowColor = UIColor.systemGray.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 2, height: 2)
+    }
+}
+
+extension CALayer {
+    func setCornerRadius() {
+        cornerRadius = bounds.size.width/2
+    }
 }

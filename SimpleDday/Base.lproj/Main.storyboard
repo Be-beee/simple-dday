@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--dandi.-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="SimpleDday" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,13 +40,29 @@
                                     <constraint firstItem="Gyc-dF-clL" firstAttribute="centerX" secondItem="4Xv-pv-1yd" secondAttribute="centerX" id="yKb-Sx-BcQ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZc-b7-bf0">
+                                <rect key="frame" x="334" y="752" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Hk4-Dh-ivy"/>
+                                    <constraint firstAttribute="width" secondItem="GZc-b7-bf0" secondAttribute="height" multiplier="1:1" id="jyu-Gt-dFx"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                </state>
+                                <connections>
+                                    <action selector="addDday:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fET-el-qJ0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4Xv-pv-1yd" secondAttribute="bottom" id="1eO-FZ-O4y"/>
                             <constraint firstItem="4Xv-pv-1yd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9ro-5o-Nw0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GZc-b7-bf0" secondAttribute="trailing" constant="20" id="TfT-L1-bNk"/>
                             <constraint firstItem="4Xv-pv-1yd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aig-kI-P9A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GZc-b7-bf0" secondAttribute="bottom" constant="50" id="ebo-l6-uih"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Xv-pv-1yd" secondAttribute="trailing" id="f0K-yg-F7t"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vk7-t6-1Zn" secondAttribute="bottom" id="tmZ-lk-u55"/>
                             <constraint firstItem="Vk7-t6-1Zn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tzk-wO-ugz"/>
@@ -54,17 +70,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vk7-t6-1Zn" secondAttribute="trailing" id="yPh-Zr-w9P"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QaX-xc-9ci">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="a8S-nh-IEy">
-                            <color key="tintColor" systemColor="labelColor"/>
-                            <connections>
-                                <action selector="addDday:" destination="BYZ-38-t0r" id="CEo-p3-yHb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="dandi." id="QaX-xc-9ci"/>
                     <connections>
                         <outlet property="ddayListView" destination="Vk7-t6-1Zn" id="pVP-09-zCA"/>
                         <outlet property="emptyCoverView" destination="4Xv-pv-1yd" id="9Rh-3A-Ivt"/>
+                        <outlet property="floatingBtn" destination="GZc-b7-bf0" id="iQP-g1-k92"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

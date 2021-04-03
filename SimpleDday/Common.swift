@@ -38,6 +38,8 @@ struct Theme {
         "yellow": UIColor(cgColor: CGColor(red: 242/255, green: 206/255, blue: 112/255, alpha: 1)), // yellow #F2CE70
         "red": UIColor(cgColor: CGColor(red: 203/255, green: 125/255, blue: 125/255, alpha: 1)), // red #CB7D7D
         "gray": UIColor(cgColor: CGColor(red: 183/255, green: 183/255, blue: 183/255, alpha: 1)), // gray #B7B7B7
+        "lemon": UIColor(cgColor: CGColor(red: 249/255, green: 242/255, blue: 170/255, alpha: 1)), // lemon #F9F2AA
+        "soda": UIColor(cgColor: CGColor(red: 108/255, green: 205/255, blue: 205/255, alpha: 1)), // soda #6CCDCD
         
     ]
 }
