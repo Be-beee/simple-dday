@@ -35,22 +35,16 @@ struct DdayEntry: TimelineEntry {
 }
 
 struct DdayWidgetEntryView : View {
+    @Environment(\.widgetFamily) private var widgetFamily
     var entry: Provider.Entry
 
     var body: some View {
         if let model = loadModelFromConfig(for: entry.configuration) {
-            ZStack {
-                if let colorName = model.bgColor {
-                    Color(Theme.main.colors[colorName] ?? .systemBackground)
-                }
-                Image(uiImage: model.dataToImage() ?? UIImage())
-                    .resizable()
-                VStack {
-                    Text(model.title)
-                    Text(DdayLabelManager.setDdayLabel(date: model.date, isDday: model.isDday))
-                        .font(.title)
-                        .fontWeight(.bold)
-                }
+            switch widgetFamily {
+            case .systemSmall:
+                SmallDdayWidget(model: model)
+            default:
+                MediumDdayWidget(model: model)
             }
         } else {
             Text("길게 탭하여\n위젯 편집")
@@ -64,16 +58,70 @@ struct DdayWidgetEntryView : View {
         guard let id = configuration.ddayItem?.identifier else {
             return nil
         }
-        guard !DdayData.shared.ddayList.isEmpty else {
-            print("None")
-            return nil
-            
-        }
-        print(DdayData.shared.ddayList)
+        guard !DdayData.shared.ddayList.isEmpty else { return nil }
         return DdayData.shared.ddayList[Int(id) ?? 0]
     }
 }
 
+// MARK:- System Small Widget
+
+struct SmallDdayWidget: View {
+    var model: DateCountModel
+    
+    var body: some View {
+        ZStack {
+            if let colorName = model.bgColor {
+                Color(Theme.main.colors[colorName] ?? .systemBackground)
+            }
+            Image(uiImage: model.dataToImage() ?? UIImage())
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .blur(radius: 1.0)
+            VStack {
+                Text(model.title)
+                    .foregroundColor(.white)
+                    .font(.subheadline)
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
+                Text(DdayLabelManager.setDdayLabel(date: model.date, isDday: model.isDday))
+                    .foregroundColor(.white)
+                    .font(.title)
+            }
+        }
+    }
+}
+
+// MARK:- System Medium Widget
+
+struct MediumDdayWidget: View {
+    var model: DateCountModel
+    
+    var body: some View {
+        ZStack {
+            if let colorName = model.bgColor {
+                Color(Theme.main.colors[colorName] ?? .systemBackground)
+            }
+            Image(uiImage: model.dataToImage() ?? UIImage())
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .blur(radius: 1.0)
+            HStack {
+                Text(model.title)
+                    .frame(width: UIScreen.main.bounds.width/3, height: 100, alignment: .topLeading)
+                    .foregroundColor(.white)
+                    .font(.subheadline)
+                    .padding(.leading, 20)
+                Text(DdayLabelManager.setDdayLabel(date: model.date, isDday: model.isDday))
+                    .frame(width: UIScreen.main.bounds.width/3, height: 100, alignment: .bottomTrailing)
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .padding()
+            }
+        }
+    }
+}
+
+// MARK:- Setting Widget Data
 @main
 struct DdayWidget: Widget {
     let kind: String = "DdayWidget"
@@ -83,7 +131,8 @@ struct DdayWidget: Widget {
             DdayWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("dandi.")
-        .description("위젯에 표시할 디데이를 선택해주세요.")
+        .description("위젯에 선택된 디데이를 표시할 수 있습니다.")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
