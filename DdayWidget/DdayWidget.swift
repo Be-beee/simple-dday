@@ -76,7 +76,6 @@ struct SmallDdayWidget: View {
             Image(uiImage: model.dataToImage() ?? UIImage())
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .blur(radius: 1.0)
             VStack {
                 Text(model.title)
                     .foregroundColor(.white)
@@ -104,7 +103,6 @@ struct MediumDdayWidget: View {
             Image(uiImage: model.dataToImage() ?? UIImage())
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .blur(radius: 1.0)
             HStack {
                 Text(model.title)
                     .frame(width: UIScreen.main.bounds.width/3, height: 100, alignment: .topLeading)
