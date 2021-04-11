@@ -29,6 +29,14 @@ class MainViewController: UIViewController {
         refreshListView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.ddayListView.visibleCells.count > 0 {
+            let cell = self.ddayListView.visibleCells[0] as! DdayListCell
+            cell.animateSwipeHint()
+        }
+    }
+    
     func setFloatingBtn() {
         let color1 = Theme.main.colors["lemon"] ?? .systemBackground
         let color2 = Theme.main.colors["soda"] ?? .systemBackground
@@ -94,16 +102,21 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if indexPath.section != 0 { return nil }
+        
+        let delete = UIContextualAction(style: .normal, title: "삭제") { (action, view, nil) in
             DdayData.shared.ddayListLabels.remove(at: indexPath.row)
             DdayData.shared.ddayList.remove(at: indexPath.row)
             DdayData.shared.saveData()
-            refreshListView()
-        default:
-            break
+            self.refreshListView()
+            
         }
+        delete.backgroundColor = .systemRed
+        
+        let config = UISwipeActionsConfiguration(actions: [delete])
+        config.performsFirstActionWithFullSwipe = false
+        return config
     }
     
 }
