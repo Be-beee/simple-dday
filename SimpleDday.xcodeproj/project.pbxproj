@@ -127,6 +127,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B59B588A2624770600AFBA14 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B5A0230B260C391900A4C6A7 /* Storage.swift */,
+				B5FE0D9F2603269C0028DD9C /* Common.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B59B588B2624773300AFBA14 /* ListCell */ = {
+			isa = PBXGroup;
+			children = (
+				B54E4F6626049EDD007491C0 /* DdayListCell.swift */,
+				B54E4F6726049EDD007491C0 /* DdayListCell.xib */,
+			);
+			path = ListCell;
+			sourceTree = "<group>";
+		};
+		B59B588C2624777E00AFBA14 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B5FE0D8D260312E00028DD9C /* MainViewController.swift */,
+				B5FE0D8F260312E00028DD9C /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B59B588E262477BB00AFBA14 /* AddDday */ = {
+			isa = PBXGroup;
+			children = (
+				B523D9982603806700C52185 /* AddDdayViewController.swift */,
+				B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */,
+			);
+			path = AddDday;
+			sourceTree = "<group>";
+		};
 		B5D35353260A04F9007A2795 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,14 +222,10 @@
 				B592BE3C260EF1F300E8367B /* SimpleDday.entitlements */,
 				B5FE0D89260312E00028DD9C /* AppDelegate.swift */,
 				B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */,
-				B5FE0D9F2603269C0028DD9C /* Common.swift */,
-				B5A0230B260C391900A4C6A7 /* Storage.swift */,
-				B54E4F6626049EDD007491C0 /* DdayListCell.swift */,
-				B54E4F6726049EDD007491C0 /* DdayListCell.xib */,
-				B5FE0D8D260312E00028DD9C /* MainViewController.swift */,
-				B5FE0D8F260312E00028DD9C /* Main.storyboard */,
-				B523D9982603806700C52185 /* AddDdayViewController.swift */,
-				B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */,
+				B59B588A2624770600AFBA14 /* Common */,
+				B59B588B2624773300AFBA14 /* ListCell */,
+				B59B588C2624777E00AFBA14 /* Main */,
+				B59B588E262477BB00AFBA14 /* AddDday */,
 				B5FE0D92260312E00028DD9C /* Assets.xcassets */,
 				B5FE0D94260312E00028DD9C /* LaunchScreen.storyboard */,
 				B5FE0D97260312E00028DD9C /* Info.plist */,

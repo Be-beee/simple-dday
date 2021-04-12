@@ -24,8 +24,6 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DdayData.shared.loadListData()
-        DdayData.shared.loadLabelsData()
         refreshListView()
     }
     
@@ -51,7 +49,6 @@ class MainViewController: UIViewController {
     }
     
     func refreshListView() {
-//        WidgetCenter.shared.reloadAllTimelines()
         ddayListView.reloadData()
         if DdayData.shared.ddayList.isEmpty {
             emptyCoverView.isHidden = false
@@ -61,7 +58,6 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func unwindToMain(sender: UIStoryboardSegue) {
-        print("add data")
         let vc = sender.source as! AddDdayViewController
         DdayData.shared.ddayListLabels.append(vc.newData.title)
         DdayData.shared.ddayList.append(vc.newData)

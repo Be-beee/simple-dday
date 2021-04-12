@@ -37,7 +37,6 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     
     func setDateFormatter() {
         df.dateFormat = "yyyy년 MM월 dd일"
-//        df.locale = Locale(identifier: "ko_KR")
         
         selectedDateLabel.text = df.string(from: Date())
     }
@@ -143,7 +142,6 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         newData.bgColor = Theme.main.colors.randomElement()?.key ?? "None"
         if isImageFilled {
             newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
-            print(newData.bgImage)
         }
         
         self.performSegue(withIdentifier: "toMain", sender: self)
