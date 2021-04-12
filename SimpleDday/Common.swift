@@ -65,10 +65,10 @@ struct DdayData {
 
 struct DdayLabelManager {
     static func setDdayLabel(date: Date, isDday: Bool) -> String {
-        let today = Date()
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let today = Calendar.current.date(from: dateComponents) ?? Date()
         let timeInterval = today.timeIntervalSince(date)
         let diff = Int(round(timeInterval/(60*60*24)))
-        print(diff)
         
         if diff < 0 {
             return "D\(diff)"

@@ -137,7 +137,8 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         if let title = titleTextField.text {
             newData.title = title
         }
-        newData.date = ddayDatePicker.date
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: ddayDatePicker.date)
+        newData.date = Calendar.current.date(from: dateComponents) ?? Date()
         newData.shouldAlarm = pushNotiSwitch.isOn
         newData.bgColor = Theme.main.colors.randomElement()?.key ?? "None"
         if isImageFilled {
