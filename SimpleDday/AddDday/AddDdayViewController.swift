@@ -28,6 +28,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.titleTextField.delegate = self
         hideNavigationBarUnderline()
         setDateFormatter()
         setButtonUI()
@@ -163,5 +164,12 @@ extension AddDdayViewController {
         
         ddayDatePicker.minimumDate = nil
         ddayDatePicker.maximumDate = Date()
+    }
+}
+
+extension AddDdayViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
