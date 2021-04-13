@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if self.ddayListView.visibleCells.count > 0 {
+        if self.ddayListView.visibleCells.count > 0, LaunchingCount.main.getCount() ?? -1 > 0 {
             let cell = self.ddayListView.visibleCells[0] as! DdayListCell
             cell.animateSwipeHint()
         }

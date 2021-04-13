@@ -103,3 +103,19 @@ extension UserDefaults {
         return data
     }
 }
+
+struct LaunchingCount {
+    static var main = LaunchingCount()
+    
+    mutating func setCount(_ num: Int?) {
+        if let n = num {
+            UserDefaults.standard.set(n, forKey: "launchCount")
+        } else {
+            UserDefaults.standard.set(2, forKey: "launchCount")
+        }
+    }
+    
+    func getCount() -> Int? {
+        return UserDefaults.standard.value(forKey: "launchCount") as? Int
+    }
+}
