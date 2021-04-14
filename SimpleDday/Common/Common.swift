@@ -14,6 +14,7 @@ struct DateCountModel: Codable {
     var shouldAlarm: Bool
     var bgImage: Data
     var bgColor: String
+    var createDate: Date
     
     func dataToImage() -> UIImage? {
         return UIImage(data: bgImage)

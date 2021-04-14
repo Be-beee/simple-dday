@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import UserNotifications
 
 class AddDdayViewController: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     let df = DateFormatter()
-    var newData: DateCountModel = DateCountModel(date: Date(), title: "None", isDday: true, shouldAlarm: false, bgImage: Data(), bgColor: "None")
+    var newData: DateCountModel = DateCountModel(date: Date(), title: "None", isDday: true, shouldAlarm: false, bgImage: Data(), bgColor: "None", createDate: Date())
     
     var isImageFilled = false
 
@@ -144,8 +145,27 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         if isImageFilled {
             newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
         }
+        newData.createDate = Date()
+        
+        if newData.shouldAlarm {
+            addNewNotification(newData)
+        }
         
         self.performSegue(withIdentifier: "toMain", sender: self)
+    }
+    
+    func addNewNotification(_ item: DateCountModel) {
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "D-day"
+        notificationContent.body = item.title
+        
+        var date = Calendar.current.dateComponents([.year, .month, .day], from: item.date)
+        date.hour = 0
+        print(date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        let request = UNNotificationRequest(identifier: "\(item.title) \(item.createDate)", content: notificationContent, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }
 

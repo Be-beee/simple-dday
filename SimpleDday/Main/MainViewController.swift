@@ -7,6 +7,7 @@
 
 import UIKit
 import WidgetKit
+import UserNotifications
 
 class MainViewController: UIViewController {
     
@@ -102,8 +103,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section != 0 { return nil }
         
         let delete = UIContextualAction(style: .normal, title: "삭제") { (action, view, nil) in
+            let item = DdayData.shared.ddayList[indexPath.row]
             DdayData.shared.ddayListLabels.remove(at: indexPath.row)
             DdayData.shared.ddayList.remove(at: indexPath.row)
+            if item.shouldAlarm {
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(item.title) \(item.createDate)"])
+            }
             DdayData.shared.saveData()
             self.refreshListView()
             
