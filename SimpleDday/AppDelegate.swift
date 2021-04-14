@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DdayData.shared.loadListData()
         DdayData.shared.loadLabelsData()
         countLaunchNumForSwipeHintAnimation()
+        
+        UNUserNotificationCenter.current().delegate = self
+        requestNotificationAuthorization()
+        
         return true
     }
 
@@ -45,5 +50,26 @@ extension AppDelegate {
         } else {
             LaunchingCount.main.setCount(nil)
         }
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .badge, .sound])
+    }
+    
+    func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (success, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
     }
 }
