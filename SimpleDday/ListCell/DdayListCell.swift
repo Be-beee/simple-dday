@@ -14,6 +14,8 @@ class DdayListCell: UITableViewCell {
     
     @IBOutlet weak var mainView: UIView!
     
+    @IBOutlet weak var alarmImageView: UIImageView!
+    
     func animateSwipeHint() {
         slideFromRight()
     }

@@ -55,6 +55,14 @@
                                     <constraint firstItem="c1k-X9-Pv2" firstAttribute="centerY" secondItem="ODC-5V-tlL" secondAttribute="centerY" id="dkk-Nu-L4R"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell.slash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ml0-0T-EbX">
+                                <rect key="frame" x="20" y="15.5" width="22" height="21.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ml0-0T-EbX" secondAttribute="height" multiplier="1:1" id="3Li-w3-SgJ"/>
+                                    <constraint firstAttribute="width" constant="22" id="gPw-uK-YFF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -64,6 +72,8 @@
                             <constraint firstItem="VPn-eV-ac8" firstAttribute="leading" secondItem="uIU-jT-4MQ" secondAttribute="leading" constant="10" id="Hxt-qy-zoP"/>
                             <constraint firstItem="ODC-5V-tlL" firstAttribute="leading" secondItem="VPn-eV-ac8" secondAttribute="leading" constant="10" id="Ioi-OS-lnG"/>
                             <constraint firstItem="VPn-eV-ac8" firstAttribute="top" secondItem="uIU-jT-4MQ" secondAttribute="top" constant="5" id="LqD-aX-w7J"/>
+                            <constraint firstItem="ml0-0T-EbX" firstAttribute="leading" secondItem="VPn-eV-ac8" secondAttribute="leading" constant="10" id="igB-DH-HcL"/>
+                            <constraint firstItem="ml0-0T-EbX" firstAttribute="top" secondItem="VPn-eV-ac8" secondAttribute="top" constant="10" id="sjd-Rp-ABM"/>
                             <constraint firstAttribute="trailing" secondItem="VPn-eV-ac8" secondAttribute="trailing" constant="10" id="zWr-vM-tlS"/>
                         </constraints>
                     </view>
@@ -80,6 +90,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="alarmImageView" destination="ml0-0T-EbX" id="3M7-2q-Rui"/>
                 <outlet property="ddayDate" destination="ktK-wK-r8C" id="YZA-ea-HPH"/>
                 <outlet property="ddayImage" destination="VPn-eV-ac8" id="Qbv-4R-IMY"/>
                 <outlet property="ddayTitle" destination="c1k-X9-Pv2" id="WEk-ny-t3R"/>
@@ -89,6 +100,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="bell.slash.fill" catalog="system" width="124" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

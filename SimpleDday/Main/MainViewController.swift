@@ -87,14 +87,21 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DdayListCell", for: indexPath) as! DdayListCell
         
-        cell.ddayTitle.text = DdayData.shared.ddayList[indexPath.row].title
-        cell.ddayDate.text = DdayLabelManager.setDdayLabel(date: DdayData.shared.ddayList[indexPath.row].date, isDday: DdayData.shared.ddayList[indexPath.row].isDday)
+        let cellItem = DdayData.shared.ddayList[indexPath.row]
+        cell.ddayTitle.text = cellItem.title
+        cell.ddayDate.text = DdayLabelManager.setDdayLabel(date: cellItem.date, isDday: cellItem.isDday)
         
-        let colorName = DdayData.shared.ddayList[indexPath.row].bgColor
+        let colorName = cellItem.bgColor
         cell.ddayImage.backgroundColor = Theme.main.colors[colorName]
         
-        let imgData = DdayData.shared.ddayList[indexPath.row].bgImage
+        let imgData = cellItem.bgImage
         cell.ddayImage.image = UIImage(data: imgData)
+        
+        if cellItem.shouldAlarm {
+            cell.alarmImageView.image = UIImage(systemName: "bell.fill")
+        } else {
+            cell.alarmImageView.image = UIImage(systemName: "bell.slash.fill")
+        }
         
         return cell
     }
