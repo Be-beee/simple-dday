@@ -171,7 +171,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
 
 extension AddDdayViewController {
     func setDdayMode() {
-        ddayButton.backgroundColor = Theme.main.colors["green"]
+        ddayButton.backgroundColor = Theme.main.colors["yellow"]
         dateCountButton.backgroundColor = .clear
         
         ddayDatePicker.minimumDate = Date()
@@ -180,7 +180,7 @@ extension AddDdayViewController {
     
     func setDateCountMode() {
         ddayButton.backgroundColor = .clear
-        dateCountButton.backgroundColor = Theme.main.colors["red"]
+        dateCountButton.backgroundColor = Theme.main.colors["soda"]
         
         ddayDatePicker.minimumDate = nil
         ddayDatePicker.maximumDate = Date()
