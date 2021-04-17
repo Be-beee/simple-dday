@@ -27,6 +27,8 @@
 		B5D353BC260A20BB007A2795 /* ConfigurationIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B5D3539B260A198E007A2795 /* ConfigurationIntent.intentdefinition */; };
 		B5D353C3260A2784007A2795 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D9F2603269C0028DD9C /* Common.swift */; };
 		B5D353C7260A2785007A2795 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D9F2603269C0028DD9C /* Common.swift */; };
+		B5E92C85262959CD00F4D8E1 /* DetailDdayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E92C84262959CD00F4D8E1 /* DetailDdayController.swift */; };
+		B5E92C8D262959E100F4D8E1 /* DetailDdayController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5E92C8C262959E100F4D8E1 /* DetailDdayController.storyboard */; };
 		B5FE0D8A260312E00028DD9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D89260312E00028DD9C /* AppDelegate.swift */; };
 		B5FE0D8C260312E00028DD9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */; };
 		B5FE0D8E260312E00028DD9C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE0D8D260312E00028DD9C /* MainViewController.swift */; };
@@ -88,6 +90,8 @@
 		B5D35374260A07B5007A2795 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		B5D35376260A07B5007A2795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5D3539B260A198E007A2795 /* ConfigurationIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = ConfigurationIntent.intentdefinition; sourceTree = "<group>"; };
+		B5E92C84262959CD00F4D8E1 /* DetailDdayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDdayController.swift; sourceTree = "<group>"; };
+		B5E92C8C262959E100F4D8E1 /* DetailDdayController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailDdayController.storyboard; sourceTree = "<group>"; };
 		B5FE0D86260312E00028DD9C /* SimpleDday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleDday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FE0D89260312E00028DD9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5FE0D8B260312E00028DD9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +198,15 @@
 			path = DdayIntent;
 			sourceTree = "<group>";
 		};
+		B5E92C83262959A000F4D8E1 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B5E92C84262959CD00F4D8E1 /* DetailDdayController.swift */,
+				B5E92C8C262959E100F4D8E1 /* DetailDdayController.storyboard */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		B5FE0D7D260312E00028DD9C = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +239,7 @@
 				B59B588B2624773300AFBA14 /* ListCell */,
 				B59B588C2624777E00AFBA14 /* Main */,
 				B59B588E262477BB00AFBA14 /* AddDday */,
+				B5E92C83262959A000F4D8E1 /* Detail */,
 				B5FE0D92260312E00028DD9C /* Assets.xcassets */,
 				B5FE0D94260312E00028DD9C /* LaunchScreen.storyboard */,
 				B5FE0D97260312E00028DD9C /* Info.plist */,
@@ -355,6 +369,7 @@
 				B5FE0D93260312E00028DD9C /* Assets.xcassets in Resources */,
 				B523D99C2603807E00C52185 /* AddDdayViewController.storyboard in Resources */,
 				B5FE0D91260312E00028DD9C /* Main.storyboard in Resources */,
+				B5E92C8D262959E100F4D8E1 /* DetailDdayController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +405,7 @@
 				B5FE0DA02603269C0028DD9C /* Common.swift in Sources */,
 				B523D9992603806700C52185 /* AddDdayViewController.swift in Sources */,
 				B5FE0D8E260312E00028DD9C /* MainViewController.swift in Sources */,
+				B5E92C85262959CD00F4D8E1 /* DetailDdayController.swift in Sources */,
 				B5FE0D8A260312E00028DD9C /* AppDelegate.swift in Sources */,
 				B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */,
 				B5A0230C260C391900A4C6A7 /* Storage.swift in Sources */,

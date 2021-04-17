@@ -127,6 +127,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return config
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailDdayVC = UIStoryboard(name: "DetailDdayController", bundle: nil).instantiateViewController(withIdentifier: "DetailDdayController") as? DetailDdayController else { return }
+        detailDdayVC.selectedIdx = indexPath.row
+        
+        self.navigationController?.pushViewController(detailDdayVC, animated: true)
+    }
+    
 }
 
 // MARK:- Floating Button Setting
