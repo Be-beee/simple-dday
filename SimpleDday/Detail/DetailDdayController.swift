@@ -56,7 +56,16 @@ class DetailDdayController: UITableViewController {
     }
     
     @IBAction func deleteData(_ sender: UIButton) {
-        print("delete data")
+        let alert = UIAlertController(title: "알림", message: "디데이 데이터가 영구적으로 삭제됩니다!\n정말 삭제하시겠습니까?", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .destructive) { action in
+            self.performSegue(withIdentifier: "deleteFromDetail", sender: self)
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func moveToHelpView(_ sender: UIButton) {

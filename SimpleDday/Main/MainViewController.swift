@@ -66,6 +66,18 @@ class MainViewController: UIViewController {
         refreshListView()
     }
     
+    @IBAction func deleteFromDetailView(sender: UIStoryboardSegue) {
+        let vc = sender.source as! DetailDdayController
+        let item = DdayData.shared.ddayList[vc.selectedIdx]
+        DdayData.shared.ddayListLabels.remove(at: vc.selectedIdx)
+        DdayData.shared.ddayList.remove(at: vc.selectedIdx)
+        if item.shouldAlarm {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(item.title) \(item.createDate)"])
+        }
+        DdayData.shared.saveData()
+        self.refreshListView()
+    }
+    
     @IBAction func addDday(_ sender: UIButton) {
         let addDdayVC = UIStoryboard(name: "AddDdayViewController", bundle: nil).instantiateViewController(withIdentifier: "NavVC") as! UINavigationController
         self.present(addDdayVC, animated: true, completion: nil)

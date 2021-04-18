@@ -183,9 +183,11 @@
                         <outlet property="itemDday" destination="9uo-Rp-dLN" id="5qP-9D-gXB"/>
                         <outlet property="itemImageView" destination="IvQ-5i-XVw" id="H73-VJ-eG0"/>
                         <outlet property="itemTitle" destination="KKs-Dv-kKu" id="IgH-mY-cxE"/>
+                        <segue destination="qmi-BF-Mya" kind="unwind" identifier="deleteFromDetail" unwindAction="deleteFromDetailViewWithSender:" id="2hd-MW-puq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHZ-AH-I9K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="qmi-BF-Mya" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-345" y="43"/>
         </scene>
