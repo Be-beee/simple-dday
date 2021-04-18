@@ -11,6 +11,8 @@
 		B523D99C2603807E00C52185 /* AddDdayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */; };
 		B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E4F6626049EDD007491C0 /* DdayListCell.swift */; };
 		B54E4F6926049EDD007491C0 /* DdayListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54E4F6726049EDD007491C0 /* DdayListCell.xib */; };
+		B54F5DA9262C193A009AEC88 /* WidgetHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54F5DA8262C193A009AEC88 /* WidgetHelpViewController.swift */; };
+		B54F5DAE262C1947009AEC88 /* WidgetHelpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54F5DAD262C1947009AEC88 /* WidgetHelpViewController.storyboard */; };
 		B5A0230C260C391900A4C6A7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0230B260C391900A4C6A7 /* Storage.swift */; };
 		B5A02313260C497900A4C6A7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0230B260C391900A4C6A7 /* Storage.swift */; };
 		B5A02317260C497A00A4C6A7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0230B260C391900A4C6A7 /* Storage.swift */; };
@@ -75,6 +77,8 @@
 		B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDdayViewController.storyboard; sourceTree = "<group>"; };
 		B54E4F6626049EDD007491C0 /* DdayListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdayListCell.swift; sourceTree = "<group>"; };
 		B54E4F6726049EDD007491C0 /* DdayListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DdayListCell.xib; sourceTree = "<group>"; };
+		B54F5DA8262C193A009AEC88 /* WidgetHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHelpViewController.swift; sourceTree = "<group>"; };
+		B54F5DAD262C1947009AEC88 /* WidgetHelpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WidgetHelpViewController.storyboard; sourceTree = "<group>"; };
 		B592BE3C260EF1F300E8367B /* SimpleDday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleDday.entitlements; sourceTree = "<group>"; };
 		B592BE3D260EF1FF00E8367B /* DdayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DdayWidgetExtension.entitlements; sourceTree = "<group>"; };
 		B592BE41260EF20500E8367B /* DdayIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DdayIntent.entitlements; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B54F5DA6262C1904009AEC88 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				B54F5DA8262C193A009AEC88 /* WidgetHelpViewController.swift */,
+				B54F5DAD262C1947009AEC88 /* WidgetHelpViewController.storyboard */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 		B59B588A2624770600AFBA14 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +253,7 @@
 				B59B588C2624777E00AFBA14 /* Main */,
 				B59B588E262477BB00AFBA14 /* AddDday */,
 				B5E92C83262959A000F4D8E1 /* Detail */,
+				B54F5DA6262C1904009AEC88 /* Help */,
 				B5FE0D92260312E00028DD9C /* Assets.xcassets */,
 				B5FE0D94260312E00028DD9C /* LaunchScreen.storyboard */,
 				B5FE0D97260312E00028DD9C /* Info.plist */,
@@ -369,6 +383,7 @@
 				B5FE0D93260312E00028DD9C /* Assets.xcassets in Resources */,
 				B523D99C2603807E00C52185 /* AddDdayViewController.storyboard in Resources */,
 				B5FE0D91260312E00028DD9C /* Main.storyboard in Resources */,
+				B54F5DAE262C1947009AEC88 /* WidgetHelpViewController.storyboard in Resources */,
 				B5E92C8D262959E100F4D8E1 /* DetailDdayController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +420,7 @@
 				B5FE0DA02603269C0028DD9C /* Common.swift in Sources */,
 				B523D9992603806700C52185 /* AddDdayViewController.swift in Sources */,
 				B5FE0D8E260312E00028DD9C /* MainViewController.swift in Sources */,
+				B54F5DA9262C193A009AEC88 /* WidgetHelpViewController.swift in Sources */,
 				B5E92C85262959CD00F4D8E1 /* DetailDdayController.swift in Sources */,
 				B5FE0D8A260312E00028DD9C /* AppDelegate.swift in Sources */,
 				B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */,
