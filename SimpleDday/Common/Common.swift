@@ -65,25 +65,25 @@ struct DdayData {
 }
 
 struct DdayLabelManager {
-    static func setDdayLabel(date: Date, isDday: Bool) -> String {
+    static func setDdayLabel(date: Date, isDday: Bool, needDetail: Bool = false) -> String {
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let today = Calendar.current.date(from: dateComponents) ?? Date()
         let timeInterval = today.timeIntervalSince(date)
         let diff = Int(round(timeInterval/(60*60*24)))
         
         if diff < 0 {
-            return "D\(diff)"
+            return needDetail ? "\(abs(diff))일 남았습니다.😲" : "D\(diff)"
         } else if diff == 0 {
             if isDday {
-                return "D-day"
+                return "D-day🎉"
             } else {
-                return "D+1"
+                return needDetail ? "오늘부터 1일!😘" : "D+1"
             }
         } else {
             if isDday {
-                return "D+\(diff)"
+                return needDetail ? "\(diff)일 지났습니다.😪" : "D+\(diff)"
             } else {
-                return "D+\(diff+1)"
+                return needDetail ? "시작일로부터 \(diff+1)일째 입니다.😍" : "D+\(diff+1)"
             }
         }
     }

@@ -72,7 +72,7 @@ class DetailDdayController: UITableViewController {
         let df = DateFormatter()
         df.dateFormat = "yyyy년 MM월 dd일"
         itemDate.text = df.string(from: item.date)
-        itemDday.text = DdayLabelManager.setDdayLabel(date: item.date, isDday: item.isDday)
+        itemDday.text = DdayLabelManager.setDdayLabel(date: item.date, isDday: item.isDday, needDetail: true)
     }
     
     @IBAction func deleteData(_ sender: UIButton) {
