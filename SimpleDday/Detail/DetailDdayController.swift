@@ -89,7 +89,7 @@ class DetailDdayController: UITableViewController {
     }
     
     @IBAction func moveToHelpView(_ sender: UIButton) {
-        guard let helpVC = UIStoryboard(name: "WidgetHelpViewController", bundle: nil).instantiateViewController(withIdentifier: "WidgetHelpViewController") as? WidgetHelpViewController else { return }
+        guard let helpVC = UIStoryboard(name: "WidgetHelpViewController", bundle: nil).instantiateViewController(withIdentifier: "HelpNavigationVIewController") as? UINavigationController else { return }
         
         self.present(helpVC, animated: true, completion: nil)
     }
