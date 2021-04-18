@@ -66,6 +66,18 @@ class MainViewController: UIViewController {
         refreshListView()
     }
     
+    @IBAction func deleteFromDetailView(sender: UIStoryboardSegue) {
+        let vc = sender.source as! DetailDdayController
+        let item = DdayData.shared.ddayList[vc.selectedIdx]
+        DdayData.shared.ddayListLabels.remove(at: vc.selectedIdx)
+        DdayData.shared.ddayList.remove(at: vc.selectedIdx)
+        if item.shouldAlarm {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(item.title) \(item.createDate)"])
+        }
+        DdayData.shared.saveData()
+        self.refreshListView()
+    }
+    
     @IBAction func addDday(_ sender: UIButton) {
         let addDdayVC = UIStoryboard(name: "AddDdayViewController", bundle: nil).instantiateViewController(withIdentifier: "NavVC") as! UINavigationController
         self.present(addDdayVC, animated: true, completion: nil)
@@ -125,6 +137,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let config = UISwipeActionsConfiguration(actions: [delete])
         config.performsFirstActionWithFullSwipe = false
         return config
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailDdayVC = UIStoryboard(name: "DetailDdayController", bundle: nil).instantiateViewController(withIdentifier: "DetailDdayController") as? DetailDdayController else { return }
+        detailDdayVC.selectedIdx = indexPath.row
+        
+        self.navigationController?.pushViewController(detailDdayVC, animated: true)
     }
     
 }
