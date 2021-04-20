@@ -126,7 +126,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             DdayData.shared.ddayListLabels.remove(at: indexPath.row)
             DdayData.shared.ddayList.remove(at: indexPath.row)
             if item.shouldAlarm {
-                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(item.title) \(item.createDate)"])
+                NotificationManager.removeNotification(item)
             }
             DdayData.shared.saveData()
             self.refreshListView()

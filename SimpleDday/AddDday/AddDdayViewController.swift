@@ -148,24 +148,10 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         newData.createDate = Date()
         
         if newData.shouldAlarm {
-            addNewNotification(newData)
+            NotificationManager.addNewNotification(newData)
         }
         
         self.performSegue(withIdentifier: "toMain", sender: self)
-    }
-    
-    func addNewNotification(_ item: DateCountModel) {
-        let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "D-day"
-        notificationContent.body = item.title
-        
-        var date = Calendar.current.dateComponents([.year, .month, .day], from: item.date)
-        date.hour = 0
-        print(date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-        let request = UNNotificationRequest(identifier: "\(item.title) \(item.createDate)", content: notificationContent, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }
 
