@@ -14,6 +14,7 @@ class DetailDdayController: UITableViewController {
     var rightBarButton: UIBarButtonItem?
     
     @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var alarmButton: UIButton!
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemDate: UILabel!
     @IBOutlet weak var itemDday: UILabel!
@@ -26,20 +27,46 @@ class DetailDdayController: UITableViewController {
     
     func setNavigationBar() {
         let buttonImage = item.shouldAlarm ? UIImage(systemName: "bell.fill") : UIImage(systemName: "bell.slash.fill")
-        rightBarButton = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(changeAlarmSetting))
+        alarmButton.setBackgroundImage(buttonImage, for: .normal)
+        rightBarButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editDdayData))
         self.navigationItem.rightBarButtonItem = rightBarButton
         
         self.navigationController?.navigationBar.tintColor = .gray
         
     }
     
-    @objc func changeAlarmSetting() {
+    @objc func editDdayData() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let modify = UIAlertAction(title: "디데이 수정", style: .default, handler: nil)
+        let delete = UIAlertAction(title: "디데이 삭제", style: .destructive) { (action) in
+            let alert = UIAlertController(title: "알림", message: "디데이 데이터가 영구적으로 삭제됩니다!\n정말 삭제하시겠습니까?", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .destructive) { action in
+                self.performSegue(withIdentifier: "deleteFromDetail", sender: self)
+            }
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(modify)
+        alert.addAction(delete)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func changeAlarmSetting(_ sender: UIButton) {
         let data = DdayData.shared.ddayList[selectedIdx]
         if data.shouldAlarm {
-            rightBarButton?.image = UIImage(systemName: "bell.slash.fill")
+            alarmButton.setBackgroundImage(UIImage(systemName: "bell.slash.fill"), for: .normal)
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(data.title) \(data.createDate)"])
         } else {
-            rightBarButton?.image = UIImage(systemName: "bell.fill")
+            alarmButton.setBackgroundImage(UIImage(systemName: "bell.fill"), for: .normal)
             addNewNotification(data)
         }
         DdayData.shared.ddayList[selectedIdx].shouldAlarm.toggle()
@@ -73,19 +100,6 @@ class DetailDdayController: UITableViewController {
         df.dateFormat = "yyyy년 MM월 dd일"
         itemDate.text = df.string(from: item.date)
         itemDday.text = DdayLabelManager.setDdayLabel(date: item.date, isDday: item.isDday, needDetail: true)
-    }
-    
-    @IBAction func deleteData(_ sender: UIButton) {
-        let alert = UIAlertController(title: "알림", message: "디데이 데이터가 영구적으로 삭제됩니다!\n정말 삭제하시겠습니까?", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .destructive) { action in
-            self.performSegue(withIdentifier: "deleteFromDetail", sender: self)
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        
-        alert.addAction(cancel)
-        alert.addAction(ok)
-        
-        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func moveToHelpView(_ sender: UIButton) {
