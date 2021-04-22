@@ -31,7 +31,7 @@ class DetailDdayController: UITableViewController {
         rightBarButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editDdayData))
         self.navigationItem.rightBarButtonItem = rightBarButton
         
-        self.navigationController?.navigationBar.tintColor = .gray
+        self.navigationController?.navigationBar.tintColor = .label
         
     }
     

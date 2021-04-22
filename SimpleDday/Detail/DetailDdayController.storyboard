@@ -106,21 +106,29 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NXH-Ga-A4t" id="Max-kc-iQ0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="43.5" id="xtr-9I-aLK">
+                                        <rect key="frame" x="0.0" y="399.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xtr-9I-aLK" id="7Qt-cU-pMk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKU-Gi-PsI">
-                                                    <rect key="frame" x="20" y="7" width="86" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMJ-SJ-25I">
+                                                    <rect key="frame" x="308" y="7" width="86" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="위젯 설정 방법">
                                                         <color key="titleColor" systemColor="systemGray2Color"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="moveToHelpView:" destination="IV8-yk-4wp" eventType="touchUpInside" id="Tk4-9F-kH6"/>
+                                                        <action selector="moveToHelpView:" destination="IV8-yk-4wp" eventType="touchUpInside" id="HK7-yK-zdT"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="UKU-Gi-PsI" firstAttribute="centerY" secondItem="Max-kc-iQ0" secondAttribute="centerY" id="eug-Sl-qos"/>
-                                                <constraint firstItem="UKU-Gi-PsI" firstAttribute="leading" secondItem="Max-kc-iQ0" secondAttribute="leadingMargin" id="joV-uB-PCD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XMJ-SJ-25I" secondAttribute="trailing" id="95r-wG-wDr"/>
+                                                <constraint firstItem="XMJ-SJ-25I" firstAttribute="centerY" secondItem="7Qt-cU-pMk" secondAttribute="centerY" id="Jnt-5d-2Vt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
