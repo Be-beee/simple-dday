@@ -10,6 +10,9 @@ import UserNotifications
 
 class AddDdayViewController: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
+    var editMode: Mode?
+    var selectedIdx: Int?
+    
     let df = DateFormatter()
     var newData: DateCountModel = DateCountModel(date: Date(), title: "None", isDday: true, shouldAlarm: false, bgImage: Data(), bgColor: "None", createDate: Date())
     
@@ -32,9 +35,30 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         self.titleTextField.delegate = self
         hideNavigationBarUnderline()
         setDateFormatter()
+        setEditModeData()
         setButtonUI()
         setTapGestureAtImageView()
         setTapGestureAtView()
+    }
+    
+    func setEditModeData() {
+        guard editMode == .edit else { return }
+        guard let index = selectedIdx else { return }
+        
+        let selectedData = DdayData.shared.ddayList[index]
+        self.navigationItem.title = "디데이 수정"
+        mainImageView.image = selectedData.dataToImage()
+        if mainImageView.image == UIImage() || mainImageView.image == nil {
+            isImageFilled = false
+        } else {
+            isImageFilled = true
+        }
+        
+        mainImageView.backgroundColor = Theme.main.colors[selectedData.bgColor]
+        titleTextField.text = selectedData.title
+        selectedDateLabel.text = df.string(from: selectedData.date)
+        ddayDatePicker.date = selectedData.date
+        pushNotiSwitch.isOn = selectedData.shouldAlarm
     }
     
     func setDateFormatter() {
@@ -43,8 +67,20 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         selectedDateLabel.text = df.string(from: Date())
     }
     func setButtonUI() {
-        checkBarButton.isEnabled = false
-        setDdayMode()
+        if editMode == .edit {
+            guard let idx = selectedIdx else { return }
+            let item = DdayData.shared.ddayList[idx]
+            switch item.isDday {
+            case true:
+                setDdayMode()
+            default:
+                setDateCountMode()
+            }
+            
+        } else {
+            checkBarButton.isEnabled = false
+            setDdayMode()
+        }
         
         let ddayButtonTap = UITapGestureRecognizer(target: self, action: #selector(selectDday))
         ddayButton.addGestureRecognizer(ddayButtonTap)
@@ -134,24 +170,48 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func addDday(_ sender: UIBarButtonItem) {
+    @IBAction func saveDday(_ sender: UIBarButtonItem) {
         if let title = titleTextField.text {
             newData.title = title
         }
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: ddayDatePicker.date)
         newData.date = Calendar.current.date(from: dateComponents) ?? Date()
         newData.shouldAlarm = pushNotiSwitch.isOn
-        newData.bgColor = Theme.main.colors.randomElement()?.key ?? "None"
-        if isImageFilled {
-            newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
-        }
-        newData.createDate = Date()
         
-        if newData.shouldAlarm {
-            NotificationManager.addNewNotification(newData)
+        if let mode = editMode, mode == .edit {
+            guard let selectedIdx = self.selectedIdx else { return }
+            newData.bgColor = DdayData.shared.ddayList[selectedIdx].bgColor
+            if isImageFilled {
+                newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
+                // 기존 이미지를 변경하지 않고 수정할 때마다 이미지 품질이 떨어지는 이슈가 발생할 수 있음
+            }
+            newData.createDate = DdayData.shared.ddayList[selectedIdx].createDate
+            
+            if newData.shouldAlarm {
+                NotificationManager.addNewNotification(newData)
+            } else {
+                NotificationManager.removeNotification(newData)
+            }
+            // 이미 NotificationRequests에 없는 request를 삭제하거나 기존에 있던 데이터를 중복 저장하는 이슈가 발생할 수 있음
+            // 날짜만 바뀐 데이터의 경우 이전 request가 더미 데이터로 남는 이슈가 발생할 수 있음
+            
+            
+            self.performSegue(withIdentifier: "toDetailViewFromModify", sender: self)
+        } else {
+            newData.bgColor = Theme.main.colors.randomElement()?.key ?? "None"
+            if isImageFilled {
+                newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
+            }
+            newData.createDate = Date()
+            
+            if newData.shouldAlarm {
+                NotificationManager.addNewNotification(newData)
+            }
+            
+            self.performSegue(withIdentifier: "toMain", sender: self)
+            
+            
         }
-        
-        self.performSegue(withIdentifier: "toMain", sender: self)
     }
 }
 

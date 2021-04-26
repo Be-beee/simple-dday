@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum Mode {
+    case add, edit
+}
+
 class DetailDdayController: UITableViewController {
     var selectedIdx: Int = 0
     lazy var item = DdayData.shared.ddayList[selectedIdx]
@@ -21,8 +25,12 @@ class DetailDdayController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDetailData()
         setNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setDetailData()
     }
     
     func setNavigationBar() {
@@ -37,7 +45,17 @@ class DetailDdayController: UITableViewController {
     
     @objc func editDdayData() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let modify = UIAlertAction(title: "디데이 수정", style: .default, handler: nil)
+        
+        let modify = UIAlertAction(title: "디데이 수정", style: .default) { (action) in
+            guard let modifyVC = UIStoryboard(name: "AddDdayViewController", bundle: nil).instantiateViewController(withIdentifier: "NavVC") as? UINavigationController else { return }
+            guard let root = modifyVC.viewControllers[0] as? AddDdayViewController else { return }
+            root.editMode = .edit
+            root.newData = DdayData.shared.ddayList[self.selectedIdx]
+            root.selectedIdx = self.selectedIdx
+            
+            self.present(modifyVC, animated: true, completion: nil)
+        }
+        
         let delete = UIAlertAction(title: "디데이 삭제", style: .destructive) { (action) in
             let alert = UIAlertController(title: "알림", message: "디데이 데이터가 영구적으로 삭제됩니다!\n정말 삭제하시겠습니까?", preferredStyle: .alert)
             let ok = UIAlertAction(title: "확인", style: .destructive) { action in
@@ -92,5 +110,13 @@ class DetailDdayController: UITableViewController {
         guard let helpVC = UIStoryboard(name: "WidgetHelpViewController", bundle: nil).instantiateViewController(withIdentifier: "HelpNavigationVIewController") as? UINavigationController else { return }
         
         self.present(helpVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToDetailViewFromModify(sender: UIStoryboardSegue) {
+        let vc = sender.source as! AddDdayViewController
+        DdayData.shared.ddayList[selectedIdx] = vc.newData
+        DdayData.shared.ddayListLabels[selectedIdx] = "\(vc.newData.title) \(vc.newData.createDate)"
+        DdayData.shared.saveData()
+        // 변경된 데이터가 바로 상세 화면에 반영되지 않음
     }
 }

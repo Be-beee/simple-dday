@@ -218,7 +218,7 @@
                         <barButtonItem key="rightBarButtonItem" image="checkmark" catalog="system" id="2e8-w7-gwE">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <action selector="addDday:" destination="yhy-OX-w9r" id="pvd-SZ-bhs"/>
+                                <action selector="saveDday:" destination="yhy-OX-w9r" id="1g8-AW-0Kx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -233,6 +233,7 @@
                         <outlet property="selectedDateLabel" destination="2Oj-Ws-WAn" id="usU-CX-ZHw"/>
                         <outlet property="titleTextField" destination="rgz-iL-2Xs" id="SrA-zq-gH1"/>
                         <segue destination="737-UD-41z" kind="unwind" identifier="toMain" unwindAction="unwindToMainWithSender:" id="boQ-lb-hRI"/>
+                        <segue destination="737-UD-41z" kind="unwind" identifier="toDetailViewFromModify" unwindAction="unwindToDetailViewFromModifyWithSender:" id="EYW-UJ-wNy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A56-g7-zKD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

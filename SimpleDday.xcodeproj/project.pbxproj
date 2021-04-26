@@ -149,8 +149,8 @@
 		B59B588A2624770600AFBA14 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B5A0230B260C391900A4C6A7 /* Storage.swift */,
 				B5FE0D9F2603269C0028DD9C /* Common.swift */,
+				B5A0230B260C391900A4C6A7 /* Storage.swift */,
 				B5D454A7262EEE6700FEBE2C /* Notifications.swift */,
 			);
 			path = Common;
