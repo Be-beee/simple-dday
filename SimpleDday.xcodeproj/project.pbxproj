@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B51064452638156900439341 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51064442638156900439341 /* Theme.swift */; };
+		B51064462638156900439341 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51064442638156900439341 /* Theme.swift */; };
+		B51064472638156900439341 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51064442638156900439341 /* Theme.swift */; };
 		B523D9992603806700C52185 /* AddDdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523D9982603806700C52185 /* AddDdayViewController.swift */; };
 		B523D99C2603807E00C52185 /* AddDdayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */; };
 		B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E4F6626049EDD007491C0 /* DdayListCell.swift */; };
@@ -74,6 +77,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B51064442638156900439341 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B523D9982603806700C52185 /* AddDdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDdayViewController.swift; sourceTree = "<group>"; };
 		B523D99B2603807E00C52185 /* AddDdayViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDdayViewController.storyboard; sourceTree = "<group>"; };
 		B54E4F6626049EDD007491C0 /* DdayListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdayListCell.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			children = (
 				B5FE0D9F2603269C0028DD9C /* Common.swift */,
 				B5A0230B260C391900A4C6A7 /* Storage.swift */,
+				B51064442638156900439341 /* Theme.swift */,
 				B5D454A7262EEE6700FEBE2C /* Notifications.swift */,
 			);
 			path = Common;
@@ -400,6 +405,7 @@
 			files = (
 				B5D3535A260A04F9007A2795 /* DdayWidget.swift in Sources */,
 				B5A02313260C497900A4C6A7 /* Storage.swift in Sources */,
+				B51064462638156900439341 /* Theme.swift in Sources */,
 				B5D353C3260A2784007A2795 /* Common.swift in Sources */,
 				B5D353B8260A20BB007A2795 /* ConfigurationIntent.intentdefinition in Sources */,
 			);
@@ -411,6 +417,7 @@
 			files = (
 				B5D35375260A07B5007A2795 /* IntentHandler.swift in Sources */,
 				B5A02317260C497A00A4C6A7 /* Storage.swift in Sources */,
+				B51064472638156900439341 /* Theme.swift in Sources */,
 				B5D353C7260A2785007A2795 /* Common.swift in Sources */,
 				B5D353BC260A20BB007A2795 /* ConfigurationIntent.intentdefinition in Sources */,
 			);
@@ -429,6 +436,7 @@
 				B5FE0D8A260312E00028DD9C /* AppDelegate.swift in Sources */,
 				B54E4F6826049EDD007491C0 /* DdayListCell.swift in Sources */,
 				B5A0230C260C391900A4C6A7 /* Storage.swift in Sources */,
+				B51064452638156900439341 /* Theme.swift in Sources */,
 				B5FE0D8C260312E00028DD9C /* SceneDelegate.swift in Sources */,
 				B5D3539C260A198E007A2795 /* ConfigurationIntent.intentdefinition in Sources */,
 			);

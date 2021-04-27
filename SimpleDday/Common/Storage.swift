@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK:- Storage with FileManager
 struct Storage {
     static let documentURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.sbk.ddaycontainer")!
     
