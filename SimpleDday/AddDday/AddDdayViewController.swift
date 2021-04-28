@@ -12,6 +12,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     
     var editMode: Mode?
     var selectedIdx: Int?
+    var isImageChanged: Bool?
     
     let df = DateFormatter()
     var newData: DateCountModel = DateCountModel(date: Date(), title: "None", isDday: true, shouldAlarm: false, bgImage: Data(), bgColor: "None", createDate: Date())
@@ -53,6 +54,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         } else {
             isImageFilled = true
         }
+        isImageChanged = false
         
         mainImageView.backgroundColor = Theme.main.colors[selectedData.bgColor]
         titleTextField.text = selectedData.title
@@ -171,33 +173,46 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     }
     
     @IBAction func saveDday(_ sender: UIBarButtonItem) {
-        if let title = titleTextField.text {
-            newData.title = title
-        }
-        let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: ddayDatePicker.date)
-        newData.date = Calendar.current.date(from: dateComponents) ?? Date()
-        newData.shouldAlarm = pushNotiSwitch.isOn
-        
+        // MARK:- 디데이 수정 모드일 때
         if let mode = editMode, mode == .edit {
             guard let selectedIdx = self.selectedIdx else { return }
+            guard let title = titleTextField.text else { return }
+            
+            newData.title = title
+            let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: ddayDatePicker.date)
+            newData.date = Calendar.current.date(from: dateComponents) ?? Date()
+            newData.shouldAlarm = pushNotiSwitch.isOn
+            
             newData.bgColor = DdayData.shared.ddayList[selectedIdx].bgColor
             if isImageFilled {
-                newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
-                // 기존 이미지를 변경하지 않고 수정할 때마다 이미지 품질이 떨어지는 이슈가 발생할 수 있음
+                if let value = isImageChanged, value == true {
+                    newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
+                } else {
+                    newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 1) ?? Data()
+                }
             }
             newData.createDate = DdayData.shared.ddayList[selectedIdx].createDate
+            
+            if newData.title != DdayData.shared.ddayList[selectedIdx].title || newData.date != DdayData.shared.ddayList[selectedIdx].date {
+                NotificationManager.removeNotification(DdayData.shared.ddayList[selectedIdx])
+            }
             
             if newData.shouldAlarm {
                 NotificationManager.addNewNotification(newData)
             } else {
                 NotificationManager.removeNotification(newData)
             }
-            // 이미 NotificationRequests에 없는 request를 삭제하거나 기존에 있던 데이터를 중복 저장하는 이슈가 발생할 수 있음
-            // 날짜만 바뀐 데이터의 경우 이전 request가 더미 데이터로 남는 이슈가 발생할 수 있음
-            
             
             self.performSegue(withIdentifier: "toDetailViewFromModify", sender: self)
         } else {
+        // MARK:- 디데이 생성 모드일 때
+            if let title = titleTextField.text {
+                newData.title = title
+            }
+            let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: ddayDatePicker.date)
+            newData.date = Calendar.current.date(from: dateComponents) ?? Date()
+            newData.shouldAlarm = pushNotiSwitch.isOn
+            
             newData.bgColor = Theme.main.colors.randomElement()?.key ?? "None"
             if isImageFilled {
                 newData.bgImage = mainImageView.image?.jpegData(compressionQuality: 0.5) ?? Data()
@@ -209,8 +224,6 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
             }
             
             self.performSegue(withIdentifier: "toMain", sender: self)
-            
-            
         }
     }
 }
