@@ -13,7 +13,7 @@ enum Mode {
 
 class DetailDdayController: UITableViewController {
     var selectedIdx: Int = 0
-    lazy var item = DdayData.shared.ddayList[selectedIdx]
+//    lazy var item = DdayData.shared.ddayList[selectedIdx]
     
     var rightBarButton: UIBarButtonItem?
     
@@ -25,16 +25,17 @@ class DetailDdayController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setNavigationBar()
         setDetailData()
     }
     
     func setNavigationBar() {
-        let buttonImage = item.shouldAlarm ? UIImage(systemName: "bell.fill") : UIImage(systemName: "bell.slash.fill")
+        let detailItem = DdayData.shared.ddayList[selectedIdx]
+        let buttonImage = detailItem.shouldAlarm ? UIImage(systemName: "bell.fill") : UIImage(systemName: "bell.slash.fill")
         alarmButton.setBackgroundImage(buttonImage, for: .normal)
         rightBarButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editDdayData))
         self.navigationItem.rightBarButtonItem = rightBarButton
@@ -92,18 +93,19 @@ class DetailDdayController: UITableViewController {
     }
     
     func setDetailData() {
-        if let image = item.dataToImage() {
+        let detailItem = DdayData.shared.ddayList[selectedIdx]
+        if let image = detailItem.dataToImage() {
             itemImageView.image = image
         } else {
-            itemImageView.backgroundColor = Theme.main.colors[item.bgColor]
+            itemImageView.backgroundColor = Theme.main.colors[detailItem.bgColor]
         }
-        itemImageView.image = item.dataToImage()
-        itemTitle.text = item.title
+        itemImageView.image = detailItem.dataToImage()
+        itemTitle.text = detailItem.title
         
         let df = DateFormatter()
         df.dateFormat = "yyyy년 MM월 dd일"
-        itemDate.text = df.string(from: item.date)
-        itemDday.text = DdayLabelManager.setDdayLabel(date: item.date, isDday: item.isDday, needDetail: true)
+        itemDate.text = df.string(from: detailItem.date)
+        itemDday.text = DdayLabelManager.setDdayLabel(date: detailItem.date, isDday: detailItem.isDday, needDetail: true)
     }
     
     @IBAction func moveToHelpView(_ sender: UIButton) {
@@ -117,6 +119,5 @@ class DetailDdayController: UITableViewController {
         DdayData.shared.ddayList[selectedIdx] = vc.newData
         DdayData.shared.ddayListLabels[selectedIdx] = "\(vc.newData.title) \(vc.newData.createDate)"
         DdayData.shared.saveData()
-        // 변경된 데이터가 바로 상세 화면에 반영되지 않음
     }
 }
