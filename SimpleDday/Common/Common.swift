@@ -28,12 +28,12 @@ struct DdayData {
     var ddayListLabels: [String] = []
     
     func saveData() {
-        Storage.save(ddayList, at: "ddayList.json")
+        Storage.save(ddayList, at: "ddayList")
         UserDefaults.shared?.saveDataAtShared(ddayListLabels, at: "ddayListLabels")
     }
     
     mutating func loadListData() {
-        ddayList = Storage.load(at: "ddayList.json", [DateCountModel].self) ?? []
+        ddayList = Storage.load(at: "ddayList", [DateCountModel].self) ?? []
     }
     
     mutating func loadLabelsData() {

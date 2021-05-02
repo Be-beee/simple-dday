@@ -45,7 +45,7 @@ struct DdayLabelManager {
             return needDetail ? "\(abs(diff))일 남았습니다.😲" : "D\(diff)"
         } else if diff == 0 {
             if isDday {
-                return "D-day🎉"
+                return needDetail ? "D-day🎉" : "D-day"
             } else {
                 return needDetail ? "오늘부터 1일!😘" : "D+1"
             }

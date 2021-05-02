@@ -60,7 +60,7 @@ class MainViewController: UIViewController {
     
     @IBAction func unwindToMain(sender: UIStoryboardSegue) {
         let vc = sender.source as! AddDdayViewController
-        DdayData.shared.ddayListLabels.append(vc.newData.title)
+        DdayData.shared.ddayListLabels.append("\(vc.newData.title) \(vc.newData.createDate)")
         DdayData.shared.ddayList.append(vc.newData)
         DdayData.shared.saveData()
         refreshListView()
