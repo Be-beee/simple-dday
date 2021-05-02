@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         DdayData.shared.loadListData()
         DdayData.shared.loadLabelsData()
-        countLaunchNumForSwipeHintAnimation()
         
         UNUserNotificationCenter.current().delegate = self
         requestNotificationAuthorization()
@@ -39,18 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
-
-extension AppDelegate {
-    func countLaunchNumForSwipeHintAnimation() {
-        if let count = UserDefaults.standard.value(forKey: "launchCount") as? Int {
-            if count > 0 {
-                LaunchingCount.main.setCount(count-1)
-            }
-        } else {
-            LaunchingCount.main.setCount(nil)
-        }
-    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
