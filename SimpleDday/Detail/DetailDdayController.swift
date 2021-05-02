@@ -117,7 +117,7 @@ class DetailDdayController: UITableViewController {
     @IBAction func unwindToDetailViewFromModify(sender: UIStoryboardSegue) {
         let vc = sender.source as! AddDdayViewController
         DdayData.shared.ddayList[selectedIdx] = vc.newData
-        DdayData.shared.ddayListLabels[selectedIdx] = "\(vc.newData.title) \(vc.newData.createDate)"
+        DdayData.shared.ddayListLabels[selectedIdx] = "\(vc.newData.title)|\(vc.newData.createDate)"
         DdayData.shared.saveData()
     }
 }

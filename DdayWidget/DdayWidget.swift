@@ -64,7 +64,7 @@ struct DdayWidgetEntryView : View {
         guard !DdayData.shared.ddayList.isEmpty else { return nil }
         
         for item in DdayData.shared.ddayList {
-            let key = "\(item.title) \(item.createDate)"
+            let key = "\(item.title)|\(item.createDate)"
             if key == id {
                 return item
             }

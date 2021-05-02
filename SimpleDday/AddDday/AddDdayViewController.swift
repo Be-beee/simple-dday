@@ -207,6 +207,14 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         } else {
         // MARK:- 디데이 생성 모드일 때
             if let title = titleTextField.text {
+                if title.contains("|") {
+                    let alert = UIAlertController(title: "알림", message: "제목에 사용할 수 없는 문자'|'가 포함되어 있습니다.", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                    alert.addAction(ok)
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
                 newData.title = title
             }
             let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: ddayDatePicker.date)

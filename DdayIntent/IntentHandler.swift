@@ -21,7 +21,7 @@ class IntentHandler: INExtension, ConfigurationIntentHandling {
         DdayData.shared.loadLabelsData()
         for idx in DdayData.shared.ddayListLabels.indices {
             let data = DdayData.shared.ddayListLabels[idx]
-            let dataArr = data.split(separator: " ").map{ String($0) }
+            let dataArr = data.split(separator: "|").map{ String($0) }
             let newData = DateCount(identifier: data, display: dataArr[0])
             items.append(newData)
         }
