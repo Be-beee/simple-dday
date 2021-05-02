@@ -243,6 +243,8 @@ extension AddDdayViewController {
         
         ddayDatePicker.minimumDate = Date()
         ddayDatePicker.maximumDate = nil
+        
+        pushNotiSwitch.isEnabled = true
     }
     
     func setDateCountMode() {
@@ -251,6 +253,9 @@ extension AddDdayViewController {
         
         ddayDatePicker.minimumDate = nil
         ddayDatePicker.maximumDate = Date()
+        
+        pushNotiSwitch.isOn = false
+        pushNotiSwitch.isEnabled = false
     }
 }
 

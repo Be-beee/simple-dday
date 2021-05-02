@@ -94,6 +94,7 @@ class DetailDdayController: UITableViewController {
     
     func setDetailData() {
         let detailItem = DdayData.shared.ddayList[selectedIdx]
+        alarmButton.isEnabled = detailItem.isDday ? true : false
         if let image = detailItem.dataToImage() {
             itemImageView.image = image
         } else {
