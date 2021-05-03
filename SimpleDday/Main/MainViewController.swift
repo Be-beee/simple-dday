@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
             let cell = self.ddayListView.visibleCells[0] as! DdayListCell
             cell.animateSwipeHint()
             LaunchingCount.main.setCount(count-1)
-        } else {
+        } else if LaunchingCount.main.getCount() == nil {
             LaunchingCount.main.setCount(nil)
         }
     }
