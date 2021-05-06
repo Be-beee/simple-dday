@@ -21,9 +21,10 @@ struct Provider: IntentTimelineProvider {
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [DdayEntry] = []
-        let currentDate = Date()
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let currentDate = Calendar.current.date(from: dateComponents) ?? Date()
         for offset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .second, value: offset, to: currentDate)!
+            let entryDate = Calendar.current.date(byAdding: .hour, value: offset, to: currentDate)!
             let entry = DdayEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }

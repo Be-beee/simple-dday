@@ -67,6 +67,7 @@ class MainViewController: UIViewController {
         DdayData.shared.ddayList.append(vc.newData)
         DdayData.shared.saveData()
         refreshListView()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     @IBAction func deleteFromDetailView(sender: UIStoryboardSegue) {
@@ -79,6 +80,7 @@ class MainViewController: UIViewController {
         }
         DdayData.shared.saveData()
         self.refreshListView()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     @IBAction func addDday(_ sender: UIButton) {
@@ -86,6 +88,11 @@ class MainViewController: UIViewController {
         self.present(addDdayVC, animated: true, completion: nil)
     }
     
+    @IBAction func syncSharedData(_ sender: UIBarButtonItem) {
+        WidgetCenter.shared.reloadAllTimelines()
+        refreshListView()
+        showToastMessage(message: "위젯 데이터를 동기화했습니다.")
+    }
     
 }
 

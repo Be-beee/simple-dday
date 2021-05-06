@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 enum Mode {
     case add, edit
@@ -120,5 +121,6 @@ class DetailDdayController: UITableViewController {
         DdayData.shared.ddayList[selectedIdx] = vc.newData
         DdayData.shared.ddayListLabels[selectedIdx] = "\(vc.newData.title)|\(vc.newData.createDate)"
         DdayData.shared.saveData()
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
