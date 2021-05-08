@@ -484,7 +484,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = DdayWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202105061;
+				CURRENT_PROJECT_VERSION = 202105081;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = DdayWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -492,7 +492,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbk.SimpleDday.DdayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -508,7 +508,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = DdayWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202105061;
+				CURRENT_PROJECT_VERSION = 202105081;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = DdayWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -516,7 +516,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbk.SimpleDday.DdayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -530,7 +530,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DdayIntent/DdayIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202105061;
+				CURRENT_PROJECT_VERSION = 202105081;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = DdayIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,7 +538,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbk.SimpleDday.DdayIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -552,7 +552,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DdayIntent/DdayIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202105061;
+				CURRENT_PROJECT_VERSION = 202105081;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = DdayIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -560,7 +560,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbk.SimpleDday.DdayIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -693,14 +693,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SimpleDday/SimpleDday.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202105061;
+				CURRENT_PROJECT_VERSION = 202105081;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = SimpleDday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbk.SimpleDday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -716,14 +716,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SimpleDday/SimpleDday.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202105061;
+				CURRENT_PROJECT_VERSION = 202105081;
 				DEVELOPMENT_TEAM = NSCRL9SYQK;
 				INFOPLIST_FILE = SimpleDday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbk.SimpleDday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
