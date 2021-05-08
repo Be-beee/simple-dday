@@ -84,8 +84,16 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func addDday(_ sender: UIButton) {
-        let addDdayVC = UIStoryboard(name: "AddDdayViewController", bundle: nil).instantiateViewController(withIdentifier: "NavVC") as! UINavigationController
-        self.present(addDdayVC, animated: true, completion: nil)
+        if DdayData.shared.ddayList.count > 30 {
+            let alert = UIAlertController(title: "알림", message: "디데이는 최대 30개 등록 가능합니다.😢\n(추후 업데이트 예정)", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(ok)
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let addDdayVC = UIStoryboard(name: "AddDdayViewController", bundle: nil).instantiateViewController(withIdentifier: "NavVC") as! UINavigationController
+            self.present(addDdayVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func syncSharedData(_ sender: UIBarButtonItem) {

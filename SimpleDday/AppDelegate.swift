@@ -20,6 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
         requestNotificationAuthorization()
         
+        // resize Image in prev version
+        if UserDefaults.shared?.value(forKey: "isResizedImage") == nil {
+            if !DdayData.shared.ddayList.isEmpty {
+                var newDdayList: [DateCountModel] = []
+                for item in DdayData.shared.ddayList {
+                    var newItem = item
+                    let originalImage = item.dataToImage() ?? UIImage()
+                    let resizedImage = ResizingManager.resizeImage(image: originalImage)
+                    newItem.bgImage = resizedImage.jpegData(compressionQuality: 0.9) ?? Data()
+                    newDdayList.append(newItem)
+                }
+                DdayData.shared.ddayList = newDdayList
+                DdayData.shared.saveData()
+            }
+            UserDefaults.shared?.set(true, forKey: "isResizedImage")
+        }
+        
         return true
     }
 
