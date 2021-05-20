@@ -93,6 +93,7 @@ struct SmallDdayWidget: View {
                     .font(.subheadline)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
+                    .lineLimit(2)
                 Text(DdayLabelManager.setDdayLabel(date: model.date, isDday: model.isDday))
                     .foregroundColor(.white)
                     .font(.title)
