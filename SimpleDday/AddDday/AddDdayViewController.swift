@@ -193,6 +193,8 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
                 } else {
                     newData.bgImage = DdayData.shared.ddayList[selectedIdx].bgImage
                 }
+            } else {
+                newData.bgImage = Data()
             }
             newData.createDate = DdayData.shared.ddayList[selectedIdx].createDate
             
