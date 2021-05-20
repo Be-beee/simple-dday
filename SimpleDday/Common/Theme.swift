@@ -84,7 +84,7 @@ extension UIViewController {
 }
 
 struct ResizingManager {
-    static func resizeImage(image: UIImage) -> UIImage {
+    static func resizeImage(image: UIImage) -> UIImage? {
         let originalImage = image
         let newWidth: CGFloat = (UIScreen.main.bounds.width + 100)
         let newHeight: CGFloat = (UIScreen.main.bounds.width + 100) * (originalImage.size.height / originalImage.size.width)
@@ -109,6 +109,6 @@ struct ResizingManager {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return newImage!
+        return newImage
     }
 }

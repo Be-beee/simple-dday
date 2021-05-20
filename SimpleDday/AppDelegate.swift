@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     var newItem = item
                     let originalImage = item.dataToImage() ?? UIImage()
                     let resizedImage = ResizingManager.resizeImage(image: originalImage)
-                    newItem.bgImage = resizedImage.jpegData(compressionQuality: 0.9) ?? Data()
+                    newItem.bgImage = resizedImage?.jpegData(compressionQuality: 0.9) ?? Data()
                     newDdayList.append(newItem)
                 }
                 DdayData.shared.ddayList = newDdayList

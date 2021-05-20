@@ -189,7 +189,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
                 if let value = isImageChanged, value == true {
                     let originalImage = mainImageView.image ?? UIImage()
                     let resizedImage = ResizingManager.resizeImage(image: originalImage)
-                    newData.bgImage = resizedImage.jpegData(compressionQuality: 0.9) ?? Data()
+                    newData.bgImage = resizedImage?.jpegData(compressionQuality: 0.9) ?? Data()
                 } else {
                     newData.bgImage = DdayData.shared.ddayList[selectedIdx].bgImage
                 }
@@ -228,7 +228,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
             if isImageFilled {
                 let originalImage = mainImageView.image ?? UIImage()
                 let resizedImage = ResizingManager.resizeImage(image: originalImage)
-                newData.bgImage = resizedImage.jpegData(compressionQuality: 0.9) ?? Data()
+                newData.bgImage = resizedImage?.jpegData(compressionQuality: 0.9) ?? Data()
             }
             newData.createDate = Date()
             
