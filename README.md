@@ -11,7 +11,7 @@
 <br>
 <div>
 	<a href="https://apps.apple.com/kr/app/dandi-%EB%94%94%EB%8D%B0%EC%9D%B4-%EA%B4%80%EB%A6%AC/id1565728718">
-		<img src="./images/appstore_available.png" width="30%">
+		<img src="./images/appstore_available.png" width="20%">
 	</a>
 </div>
 <br>
