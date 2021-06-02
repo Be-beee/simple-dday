@@ -98,10 +98,27 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     
     @objc func tapEmptyImage() {
         if !isImageFilled {
-            loadImagePickerVC()
+            let imageActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let camera = UIAlertAction(title: "카메라로 배경 이미지 촬영", style: .default) { action in
+                self.loadCameraVC()
+            }
+            let photolibrary = UIAlertAction(title: "앨범에서 선택", style: .default) { action in
+                self.loadImagePickerVC()
+            }
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            
+            imageActionSheet.addAction(camera)
+            imageActionSheet.addAction(photolibrary)
+            imageActionSheet.addAction(cancel)
+            
+            self.present(imageActionSheet, animated: true, completion: nil)
+            
         } else {
             let modifyAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            let modify = UIAlertAction(title: "이미지 변경", style: .default) { _ in
+            let camera = UIAlertAction(title: "카메라로 배경 이미지 촬영", style: .default) { _ in
+                self.loadCameraVC()
+            }
+            let modify = UIAlertAction(title: "앨범에서 선택", style: .default) { _ in
                 self.loadImagePickerVC()
             }
             let delete = UIAlertAction(title: "이미지 삭제", style: .destructive) { _ in
@@ -110,6 +127,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
             }
             let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
             
+            modifyAlert.addAction(camera)
             modifyAlert.addAction(modify)
             modifyAlert.addAction(delete)
             modifyAlert.addAction(cancel)
@@ -125,6 +143,17 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     
     @objc func tapBackground() {
         self.titleTextField.resignFirstResponder()
+    }
+    
+    func loadCameraVC() {
+        let cameraType = UIImagePickerController.SourceType.camera
+        let cameraController = UIImagePickerController()
+        
+        guard UIImagePickerController.isSourceTypeAvailable(cameraType) else { return }
+        cameraController.sourceType = cameraType
+        cameraController.delegate = self
+        
+        self.present(cameraController, animated: true, completion: nil)
     }
     
     func loadImagePickerVC() {
