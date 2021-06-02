@@ -138,7 +138,8 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
     
     func setTapGestureAtView() {
         let tapBG = UITapGestureRecognizer(target: self, action: #selector(tapBackground))
-        self.view.addGestureRecognizer(tapBG)
+        // TapGestureRecognizer와 DatePickerStyle.inline의 공생 방법 찾기
+//        self.view.addGestureRecognizer(tapBG)
     }
     
     @objc func tapBackground() {
@@ -275,6 +276,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
 extension AddDdayViewController {
     func setDdayMode() {
         ddayButton.backgroundColor = Theme.main.colors["yellow"]
+        ddayDatePicker.tintColor = Theme.main.colors["yellow"]
         dateCountButton.backgroundColor = .clear
         
         ddayDatePicker.minimumDate = Date()
@@ -286,6 +288,7 @@ extension AddDdayViewController {
     func setDateCountMode() {
         ddayButton.backgroundColor = .clear
         dateCountButton.backgroundColor = Theme.main.colors["soda"]
+        ddayDatePicker.tintColor = Theme.main.colors["soda"]
         
         ddayDatePicker.minimumDate = nil
         ddayDatePicker.maximumDate = Date()
