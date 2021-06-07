@@ -1,7 +1,7 @@
 # Dandi.
 
 <div style="text-align: center;">
-	<img src="./images/readme_bg.png" width="100%">
+	<img src="./images/dandi_main.png" width="100%">
 </div>
 <br>
 
