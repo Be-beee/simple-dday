@@ -39,7 +39,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         setEditModeData()
         setButtonUI()
         setTapGestureAtImageView()
-        setTapGestureAtView()
+//        setTapGestureAtView()
     }
     
     func setEditModeData() {
@@ -136,11 +136,10 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         }
     }
     
-    func setTapGestureAtView() {
-        let tapBG = UITapGestureRecognizer(target: self, action: #selector(tapBackground))
-        // TapGestureRecognizer와 DatePickerStyle.inline의 공생 방법 찾기
+//    func setTapGestureAtView() {
+//        let tapBG = UITapGestureRecognizer(target: self, action: #selector(tapBackground))
 //        self.view.addGestureRecognizer(tapBG)
-    }
+//    }
     
     @objc func tapBackground() {
         self.titleTextField.resignFirstResponder()
