@@ -24,10 +24,10 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>디데이 배경 이미지 촬영을 위해 카메라 접근 권한이 필요합니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>단디에서 사용자의 사진에 접근하려 합니다.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>단디에서 사용자의 카메라에 접근하려 합니다.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>ConfigurationIntent</string>
