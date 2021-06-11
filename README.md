@@ -15,10 +15,10 @@
 ## 주요 기능
 
 <div style="text-align: center;">
-	<img src="./images/main.png" width="24%">
-	<img src="./images/add.png" width="24%">
-	<img src="./images/detail.png" width="24%">
-	<img src="./images/widget.png" width="24%">
+	<img src="./images/dandi2.png" width="24%">
+	<img src="./images/dandi3.png" width="24%">
+	<img src="./images/dandi4.png" width="24%">
+	<img src="./images/dandi5.png" width="24%">
 </div>
 <br>
 <br>
