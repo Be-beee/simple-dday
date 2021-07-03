@@ -13,6 +13,7 @@ struct NotificationManager {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "D-day"
         notificationContent.body = item.title
+        notificationContent.sound = .default
         
         var date = Calendar.current.dateComponents([.year, .month, .day], from: item.date)
         date.hour = 0
