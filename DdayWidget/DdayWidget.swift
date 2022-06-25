@@ -82,7 +82,7 @@ struct SmallDdayWidget: View {
     var body: some View {
         ZStack {
             if let colorName = model.bgColor {
-                Color(Theme.main.colors[colorName] ?? .systemBackground)
+                Color(UIColor(named: colorName) ?? .systemBackground)
             }
             Image(uiImage: model.dataToImage() ?? UIImage())
                 .resizable()
@@ -110,7 +110,7 @@ struct MediumDdayWidget: View {
     var body: some View {
         ZStack {
             if let colorName = model.bgColor {
-                Color(Theme.main.colors[colorName] ?? .systemBackground)
+                Color(UIColor(named: colorName) ?? .systemBackground)
             }
             Image(uiImage: model.dataToImage() ?? UIImage())
                 .resizable()

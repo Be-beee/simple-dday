@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UuV-lg-FSB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UuV-lg-FSB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,13 +75,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUm-h6-Xk5">
-                                                    <rect key="frame" x="20" y="11.5" width="30" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="29.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="selected date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oj-Ws-WAn">
-                                                    <rect key="frame" x="290.5" y="11.5" width="103.5" height="21"/>
+                                                    <rect key="frame" x="290.5" y="11.5" width="103.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -102,7 +104,7 @@
                                             <subviews>
                                                 <datePicker contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="ub9-tk-gX1">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="370"/>
-                                                    <color key="tintColor" red="0.90588235289999997" green="0.74509803919999995" blue="0.42460634829999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="tintColor" name="DandiYellow"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="370" id="9nV-JM-4Oo"/>
                                                     </constraints>
@@ -186,18 +188,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CX-KA-VgO">
-                                                    <rect key="frame" x="8" y="11.5" width="30" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CX-KA-VgO">
+                                                    <rect key="frame" x="20" y="11.5" width="29.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iKo-DG-Rns">
-                                                    <rect key="frame" x="357" y="6.5" width="51" height="31"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iKo-DG-Rns">
+                                                    <rect key="frame" x="345" y="6.5" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="6CX-KA-VgO" firstAttribute="centerY" secondItem="TOm-1h-QYn" secondAttribute="centerY" id="Vi1-eX-DMO"/>
+                                                <constraint firstItem="iKo-DG-Rns" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6CX-KA-VgO" secondAttribute="trailing" constant="10" id="Ygx-3C-7K6"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="iKo-DG-Rns" secondAttribute="trailing" id="aC8-si-xpw"/>
                                                 <constraint firstItem="6CX-KA-VgO" firstAttribute="leading" secondItem="TOm-1h-QYn" secondAttribute="leadingMargin" id="g2Y-aO-Qqi"/>
                                                 <constraint firstItem="iKo-DG-Rns" firstAttribute="centerY" secondItem="TOm-1h-QYn" secondAttribute="centerY" id="hmW-NL-P9E"/>
@@ -268,6 +271,9 @@
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="plus image" width="1433" height="1327"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="DandiYellow">
+            <color red="0.94901960784313721" green="0.80784313725490198" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

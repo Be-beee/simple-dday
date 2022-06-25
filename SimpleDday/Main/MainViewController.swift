@@ -40,11 +40,13 @@ class MainViewController: UIViewController {
     }
     
     func setFloatingBtn() {
-        let color1 = Theme.main.colors["lemon"] ?? .systemBackground
-        let color2 = Theme.main.colors["soda"] ?? .systemBackground
+//        let color1 = UIColor(named: "lemon") ?? .systemBackground
+        let color2 = UIColor(named: "soda") ?? .systemBackground
         
-        floatingBtn.setGradient(color1: color1, color2: color2)
-        floatingBtn.setSystemImage(systemName: "plus")
+//        floatingBtn.setGradient(color1: color1, color2: color2)
+        floatingBtn.backgroundColor = color2
+        floatingBtn.layer.cornerRadius = floatingBtn.bounds.size.width / 2
+//        floatingBtn.setSystemImage(systemName: "plus")
         floatingBtn.setBackgroundShadow()
     }
     
@@ -122,7 +124,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.ddayDate.text = DdayLabelManager.setDdayLabel(date: cellItem.date, isDday: cellItem.isDday)
         
         let colorName = cellItem.bgColor
-        cell.ddayImage.backgroundColor = Theme.main.colors[colorName]
+        cell.ddayImage.backgroundColor = UIColor(named: colorName)
         
         let imgData = cellItem.bgImage
         cell.ddayImage.image = UIImage(data: imgData)
@@ -168,18 +170,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK:- Floating Button Setting
 extension UIButton {
-    func setGradient(color1: UIColor, color2: UIColor) {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [color1.cgColor, color2.cgColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradient.frame = bounds
-        gradient.setCornerRadius()
-        
-        
-        layer.addSublayer(gradient)
-    }
+//    func setGradient(color1: UIColor, color2: UIColor) {
+//        let gradient: CAGradientLayer = CAGradientLayer()
+//        gradient.colors = [color1.cgColor, color2.cgColor]
+//        gradient.locations = [0.0, 1.0]
+//        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+//        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+//        gradient.frame = bounds
+//        gradient.setCornerRadius()
+//
+//
+//        layer.addSublayer(gradient)
+//    }
     func setSystemImage(systemName: String) {
         let bgLayer = CALayer()
         let maskImageLayer = CALayer()

@@ -99,7 +99,7 @@ class DetailDdayController: UITableViewController {
         if let image = detailItem.dataToImage() {
             itemImageView.image = image
         } else {
-            itemImageView.backgroundColor = Theme.main.colors[detailItem.bgColor]
+            itemImageView.backgroundColor = UIColor(named: detailItem.bgColor)
         }
         itemImageView.image = detailItem.dataToImage()
         itemTitle.text = detailItem.title

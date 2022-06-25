@@ -56,7 +56,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
         }
         isImageChanged = false
         
-        mainImageView.backgroundColor = Theme.main.colors[selectedData.bgColor]
+        mainImageView.backgroundColor = UIColor(named: selectedData.bgColor)
         titleTextField.text = selectedData.title
         selectedDateLabel.text = df.string(from: selectedData.date)
         ddayDatePicker.date = selectedData.date
@@ -255,7 +255,7 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
             newData.date = Calendar.current.date(from: dateComponents) ?? Date()
             newData.shouldAlarm = pushNotiSwitch.isOn
             
-            newData.bgColor = Theme.main.colors.randomElement()?.key ?? "None"
+            newData.bgColor = getRandomColorName() ?? "None"
             if isImageFilled {
                 let originalImage = mainImageView.image ?? UIImage()
                 let resizedImage = ResizingManager.resizeImage(image: originalImage)
@@ -274,8 +274,8 @@ class AddDdayViewController: UITableViewController, UIImagePickerControllerDeleg
 
 extension AddDdayViewController {
     func setDdayMode() {
-        ddayButton.backgroundColor = Theme.main.colors["yellow"]
-        ddayDatePicker.tintColor = Theme.main.colors["yellow"]
+        ddayButton.backgroundColor = UIColor(named: "yellow")
+        ddayDatePicker.tintColor = UIColor(named: "yellow")
         dateCountButton.backgroundColor = .clear
         
         ddayDatePicker.minimumDate = Date()
@@ -286,14 +286,20 @@ extension AddDdayViewController {
     
     func setDateCountMode() {
         ddayButton.backgroundColor = .clear
-        dateCountButton.backgroundColor = Theme.main.colors["soda"]
-        ddayDatePicker.tintColor = Theme.main.colors["soda"]
+        dateCountButton.backgroundColor = UIColor(named: "soda")
+        ddayDatePicker.tintColor = UIColor(named: "soda")
         
         ddayDatePicker.minimumDate = nil
         ddayDatePicker.maximumDate = Date()
         
         pushNotiSwitch.isOn = false
         pushNotiSwitch.isEnabled = false
+    }
+    
+    func getRandomColorName() -> String? {
+        let customNames = ["orange", "purple", "blue", "pink", "green", "yellow", "red", "gray","lemon", "soda"]
+        
+        return customNames.randomElement()
     }
 }
 
